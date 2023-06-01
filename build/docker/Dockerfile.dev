@@ -1,0 +1,20 @@
+# sample dockerfile for building the book
+FROM milung/book-builder as book-srv
+ARG version=0.0.0
+WORKDIR /usr/src/app
+
+COPY book-src/ book-src/
+
+RUN npm run makehtml
+RUN npm run build
+RUN node build/makehtml/version.js --version ${version}
+
+FROM donatowolfisberg/spa-server as spa-builder
+
+COPY --from=book-srv /usr/src/app/www public
+RUN ./build.sh
+
+FROM scratch
+
+COPY --from=builder /app/server /server
+CMD ["/server"] 

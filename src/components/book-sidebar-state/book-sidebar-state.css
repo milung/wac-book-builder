@@ -1,0 +1,52 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.state {
+  padding: 16px;
+  width: 100%;
+  border-radius: 24px;
+  min-height: 56px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.state:hover {
+  background-color: color-mix(
+    in srgb, 
+    var(--md-sys-color-on-secondary-container), 
+    transparent 92%);
+}
+
+.state:active {
+  background-color: color-mix(
+    in srgb, 
+    var(--md-sys-color-on-secondary-container), 
+    transparent 88%);
+}
+
+
+.current {
+  color: var(--md-sys-color-primary);
+  font-weight: bolder;
+}
+
+.icon {
+  width: 32px;
+  overflow: clip;
+  --icon-size: 20px;
+}
+
+.icon > * { margin: auto;}
+
+md-icon {
+  --md-icon-size: 24px;
+  --md-icon-font: 'Font Awesome 5 Free';
+  width: 36px;
+  color: var(--md-sys-color-on-surface-variant);
+}

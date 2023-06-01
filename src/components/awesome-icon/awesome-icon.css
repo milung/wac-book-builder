@@ -1,0 +1,5 @@
+:host {
+  display: span;
+  font-size: var(--icon-size, 24px);
+  font-family: "FontAwesome";
+}

@@ -1,0 +1,13 @@
+:host {
+  float: inline-end;
+  margin-left: 12px;
+  --md-icon-size: 32px;
+  --md-icon-color: color-mix(in srgb, var(--md-sys-color-tertiary, darkblue), transparent 50%);
+  --icon-size: 32px;
+  color: color-mix(in srgb, var(--md-sys-color-tertiary, darkblue), transparent 50%);
+  max-width: 64px; 
+  max-height: 64px;
+  display: block;
+  overflow: clip;
+}
+

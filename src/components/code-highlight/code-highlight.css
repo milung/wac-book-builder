@@ -1,0 +1,151 @@
+@import "./theme.css";
+
+:host {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.wrapper {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+}
+
+.hljs {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.tools{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-top: 8px;
+  transition: 0.3s;
+  opacity: 0;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0px;
+  right: 16px;
+  gap: 8px;
+}
+.wrapper:hover .tools  {
+  opacity: 100%;
+}
+
+.lang-label {
+  color: var(--md-sys-color-secondary);
+  font-weight: 500;
+}
+
+.copy {
+  --md-icon-button-icon-size: 16px;
+}
+.copy-button {
+  
+  cursor: pointer;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: 0.3s;
+  padding: 4px 8px;
+  border-radius: 16px;
+}
+
+.copy-button:hover {
+  background-color: color-mix(
+    in srgb, 
+    var(--md-sys-color-on-secondary-container), 
+    transparent 92%);
+}
+
+.copy-button:active {
+  background-color: color-mix(
+    in srgb, 
+    var(--md-sys-color-on-secondary-container), 
+    transparent 88%);
+}
+
+
+
+::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+  background-color: var(--highlight-10, rgba(0, 0, 0, 0.1));
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--highlight-20, rgba(0, 0, 0, 0.2));
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--highlight-30, rgba(0, 0, 0, 0.3));
+}
+
+line-bg {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+line-bg md-icon {
+  opacity: 0;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  transition: 0.3s;
+  cursor: pointer;
+  --md-icon-size: 16px;
+}
+
+line-bg:hover md-icon {
+  opacity: 0.3;
+}
+
+line-bg::before {
+  font-weight: bolder;
+  margin-left: -0.6rem;
+}
+
+line-bg.add, line-bg.insert {
+  background-color: var(--_code-addition-background-color);
+}
+
+line-bg.add::before, line-bg.insert::before {
+  content: "+";
+  color: var(--_code-addition-color);
+}
+
+line-bg.remove{
+  background-color: var(--_code-deletion-background-color);
+  text-decoration: line-through;
+}
+
+line-bg.remove::before {
+  content: "-";
+  color: var(--_code-deletion-color);
+
+}
+
+line-bg.important{
+  background-color: var(--_code-important-background-color);
+  text-decoration: line-through;
+}
+
+line-bg.important::before {
+  content: "-";
+  color: var(--_code-important-color);
+
+}
+
+.pfx {
+  background-color: var(--_code-prefix-background-color);
+}

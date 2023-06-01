@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  cursor: zoom-in;
+  transition: 0.5s ease-in-out;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+}
+
+.wrapper.modal {  
+  cursor: zoom-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width:auto;
+  height:auto;
+  z-index: 100;
+  background-color: color-mix(
+    in srgb, 
+    var(--md-sys-color-surface), 
+    transparent 15%);
+}
+
+
+
+
+img {
+  width: auto;
+  height:auto;
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  object-fit: contain;
+}
+
+.modal img {
+  height: calc( 100% - 4rem );  
+  width: calc( 100% - 4rem );
+  border-radius: 32px;
+
+}
+
+.label {
+  display: block;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.8rem;  
+  border-radius: 32px;
+}
+
+.modal .label {
+  color: var(--md-sys-color-on-surface);
+}
+
+.counter {
+  font-style: italic;
+}
+

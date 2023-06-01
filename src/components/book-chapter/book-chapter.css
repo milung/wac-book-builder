@@ -1,0 +1,58 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto';
+  font-weight: normal;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  text-align: justify;
+  max-width: 50rem;
+margin-left: auto;
+margin-right: auto;
+overflow-y: auto;
+}
+
+:host > div {
+  width: calc(100% - 32px);  
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin: auto;
+}
+
+div.half-page {
+  height: 40vh;
+}
+
+* {
+  max-width: 100%;
+}
+
+code {
+  font-family: 'Roboto Mono';
+  font-size: 0.8rem;
+}
+
+
+ul, ol {
+  padding-left: 1.2rem;
+}
+
+
+h1, h2, h3 {
+  color: var(--md-sys-color-secondary);
+}
+
+
+
+blockquote
+{
+  min-height: 32px;
+  box-sizing: border-box;
+  margin: 8px 0;
+  color: var(--md-sys-color-on-surface-variant);
+  border-left: 2px solid var(--md-sys-color-tertiary);
+  padding-left: 16px;
+}
+

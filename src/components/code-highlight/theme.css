@@ -1,0 +1,377 @@
+
+.wrapper:hover .hljs {
+    background-color: var(--code-background-hover,var(--md-sys-color-surface-variant));
+  }
+  
+ .hljs {
+    color: var(--code-color, inherit);
+    background: var(--code-background, var(--md-sys-color-surface-container, rgb(0,0,0.0.2)));
+    font-family: var(--code-font-family, 'Roboto Mono');
+    font-size: var(--code-font-size, 0.8rem);
+    font-weight: var(--code-font-weight, 300);
+
+
+    /** base colors (github based) */
+    --_code-keyword-color: var(--code-keyword-color, #d73a49);
+    --_code-keyword-weight: var(--code-keyword-weight, inherit);
+    --_code-keyword-style: var(--code-keyword-style, inherit);
+    
+    --_code-title-color: var(--code-title-color, #6f42c1);
+    --_code-title-weight: var(--code-title-weight, bolder);
+    --_code-title-style: var(--code-title-style, inherit);
+    
+    --_code-variable-color: var(--code-variable-color, #005cc5);
+    --_code-variable-weight: var(--code-variable-weight, inherit);
+    --_code-variable-style: var(--code-variable-style, inherit);
+    
+    --_code-string-color: var(--code-string-color, #032f62);
+    --_code-string-weight: var(--code-string-weight, inherit);
+    --_code-string-style: var(--code-string-style, inherit);
+
+    --_code-comment-color: var(--code-comment-color, #6a737d);
+    --_code-comment-weight: var(--code-comment-weight, inherit);
+    --_code-comment-style: var(--code-comment-style, italic);
+    
+    --_code-symbol-color: var(--code-symbol-color, #e36209);
+    --_code-symbol-weight: var(--code-symbol-weight, inherit);
+    --_code-symbol-style: var(--code-symbol-style, inherit);
+    
+    --_code-name-color: var(--code-name-color, #22863a);
+    --_code-name-weight: var(--code-name-weight, inherit);
+    --_code-name-style: var(--code-name-style, inherit);
+    
+    --_code-subst-color: var(--code-subst-color, #24292e);
+    --_code-subst-weight: var(--code-subst-weight, inherit);
+    --_code-subst-style: var(--code-subst-style, inherit);
+       
+    --_code-section-color: var(--code-section-color, #005cc5);
+    --_code-section-weight: var(--code-section-weight, 700);
+    --_code-section-style: var(--code-section-style, inherit);
+    
+    --_code-bullet-color: var(--code-bullet-color, #735c0f );
+    --_code-bullet-weight: var(--code-bullet-weight, inherit);
+    --_code-bullet-style: var(--code-bullet-style, inherit);
+    
+    --_code-emphasis-color: var(--code-emphasis-color,#24292e);
+    --_code-emphasis-weight: var(--code-emphasis-weight, inherit);
+    --_code-emphasis-style: var(--code-emphasis-style, italic);
+       
+    --_code-strong-color: var(--code-strong-color, #24292e);
+    --_code-strong-weight: var(--code-strong-weight, 700);
+    --_code-strong-style: var(--code-strong-style, inherit);
+        
+    --_code-addition-color: var(--code-addition-color, #22863a);
+    --_code-addition-background-color: var(--code-addition-background-color,#06fe484e);
+        
+    --_code-deletion-color: var(--code-deletion-color, #b31d28);
+    --_code-deletion-background-color: var(--code-deletion-background-color, #ee304050);
+    
+    --_code-important-color: var(--code-important-color, #ffe603);
+    --_code-important-background-color: var(--code-important-background-color, #efc62350);
+    
+    --_code-prefix-background-color: var(--code-prefix-background-color, #ec660233);
+    /** keyword like */
+    --_code-doctag-color: var(--code-doctag-color, var(--_code-keyword-color));
+    --_code-doctag-weight: var(--code-doctag-weight, var(--_code-keyword-weight));
+    --_code-doctag-style: var(--code-doctag-style, var(--_code-keyword-style));
+    --_code-meta-keyword-color: var(--code-meta-keyword-color, var(--_code-keyword-color));
+    --_code-meta-keyword-weight: var(--code-meta-keyword-weight, var(--_code-keyword-weight));
+    --_code-meta-keyword-style: var(--code-meta-keyword-style, var(--_code-keyword-style));
+    --_code-template-tag-color: var(--code-template-tag-color, var(--_code-keyword-color));
+    --_code-template-tag-weight: var(--code-template-tag-weight, var(--_code-keyword-weight));
+    --_code-template-tag-style: var(--code-template-tag-style, var(--_code-keyword-style));
+    --_code-template-variable-color: var(--code-template-variable-color, var(--_code-keyword-color));
+    --_code-template-variable-weight: var(--code-template-variable-weight, var(--_code-keyword-weight));
+    --_code-template-variable-style: var(--code-template-variable-style, var(--_code-keyword-style));
+    --_code-type-color: var(--code-type-color, var(--_code-keyword-color));
+    --_code-type-weight: var(--code-type-weight, var(--_code-keyword-weight));
+    --_code-type-style: var(--code-type-style, var(--_code-keyword-style));
+    --_code-variable-language-color: var(--code-variable-language-color, var(--_code-keyword-color));
+    --_code-variable-language-weight: var(--code-variable-language-weight, var(--_code-keyword-weight));
+    --_code-variable-language-style: var(--code-variable-language-style, var(--_code-keyword-style));
+     
+    /** title like */
+    --_code-title-class-color: var(--code-title-class-color, var(--_code-title-color));
+    --_code-title-class-weight: var(--code-title-class-weight, var(--_code-title-weight));
+    --_code-title-class-style: var(--code-title-class-style, var(--_code-title-style));
+    --_code-title-class-inherited-color: var(--code-title-class-inherited-color, var(--_code-title-color));
+    --_code-title-class-inherited-weight: var(--code-title-class-inherited-weight, var(--_code-title-weight));
+    --_code-title-class-inherited-style: var(--code-title-class-inherited-style, var(--_code-title-style));
+    --_code-title-function-color: var(--code-title-function-color, var(--_code-title-color));
+    --_code-title-function-weight: var(--code-title-function-weight, var(--_code-title-weight));
+    --_code-title-function-style: var(--code-title-function-style, var(--_code-title-style));
+    
+    /** variable like */
+    --_code-attr-color: var(--code-attr-color, var(--_code-variable-color));
+    --_code-attr-weight: var(--code-attr-weight, var(--_code-variable-weight));
+    --_code-attr-style: var(--code-attr-style, var(--_code-variable-style));
+    --_code-attribute-color: var(--code-attribute-color, var(--_code-variable-color));
+    --_code-attribute-weight: var(--code-attribute-weight, var(--_code-variable-weight));
+    --_code-attribute-style: var(--code-attribute-style, var(--_code-variable-style));
+    --_code-literal-color: var(--code-literal-color, var(--_code-variable-color));
+    --_code-literal-weight: var(--code-literal-weight, var(--_code-variable-weight));
+    --_code-literal-style: var(--code-literal-style, var(--_code-variable-style));
+    --_code-meta-color: var(--code-meta-color, var(--_code-variable-color));
+    --_code-meta-weight: var(--code-meta-weight, var(--_code-variable-weight));
+    --_code-meta-style: var(--code-meta-style, var(--_code-variable-style));
+    --_code-number-color: var(--code-number-color, var(--_code-variable-color));
+    --_code-number-weight: var(--code-number-weight, var(--_code-variable-weight));
+    --_code-number-style: var(--code-number-style, var(--_code-variable-style));
+    --_code-operator-color: var(--code-operator-color, var(--_code-variable-color));
+    --_code-operator-weight: var(--code-operator-weight, var(--_code-variable-weight));
+    --_code-operator-style: var(--code-operator-style, var(--_code-variable-style));
+    --_code-selector-attr-color: var(--code-selector-attr-color, var(--_code-variable-color));
+    --_code-selector-attr-weight: var(--code-selector-attr-weight, var(--_code-variable-weight));
+    --_code-selector-attr-style: var(--code-selector-attr-style, var(--_code-variable-style));
+    --_code-selector-class-color: var(--code-selector-class-color, var(--_code-variable-color));
+    --_code-selector-class-weight: var(--code-selector-class-weight, var(--_code-variable-weight));
+    --_code-selector-class-style: var(--code-selector-class-style, var(--_code-variable-style));
+    --_code-selector-id-color: var(--code-selector-id-color, var(--_code-variable-color));
+    --_code-selector-id-weight: var(--code-selector-id-weight, var(--_code-variable-weight));
+    --_code-selector-id-style: var(--code-selector-id-style, var(--_code-variable-style));
+    
+    /** string like */
+    --_code-meta-string-color: var(--code-meta-string-color, var(--_code-string-color));
+    --_code-meta-string-weight: var(--code-meta-string-weight, var(--_code-string-weight));
+    --_code-meta-string-style: var(--code-meta-string-style, var(--_code-string-style));
+    --_code-regexp-color: var(--code-regexp-color, var(--_code-string-color));
+    --_code-regexp-weight: var(--code-regexp-weight, var(--_code-string-weight));
+    --_code-regexp-style: var(--code-regexp-style, var(--_code-string-style));
+    
+    /** symbol like */
+    --_code-built_in-color: var(--code-built_in-color, var(--_code-symbol-color));
+    --_code-built_in-weight: var(--code-built_in-weight, var(--_code-symbol-weight));
+    --_code-built_in-style: var(--code-built_in-style, var(--_code-symbol-style));
+        
+    /** comment like */
+    --_code-code-color: var(--code-code-color, var(--_code-comment-color));
+    --_code-code-weight: var(--code-code-weight, var(--_code-comment-weight));
+    --_code-code-style: var(--code-code-style, var(--_code-comment-style));
+    --_code-formula-color: var(--code-formula-color, var(--_code-comment-color));
+    --_code-formula-weight: var(--code-formula-weight, var(--_code-comment-weight));
+    --_code-formula-style: var(--code-formula-style, var(--_code-comment-style));
+        
+    
+    /** name like **/
+    --_code-quote-color: var(--code-quote-color, var(--_code-name-color));
+    --_code-quote-weight: var(--code-quote-weight, var(--_code-name-weight));
+    --_code-quote-style: var(--code-quote-style, var(--_code-name-style));
+    --_code-selector-pseudo-color: var(--code-selector-pseudo-color, var(--_code-name-color));
+    --_code-selector-pseudo-weight: var(--code-selector-pseudo-weight, var(--_code-name-weight));
+    --_code-selector-pseudo-style: var(--code-selector-pseudo-style, var(--_code-name-style));
+    --_code-selector-tag-color: var(--code-selector-tag-color, var(--_code-name-color));
+    --_code-selector-tag-weight: var(--code-selector-tag-weight, var(--_code-name-weight));
+    --_code-selector-tag-style: var(--code-selector-tag-style, var(--_code-name-style));
+    }
+
+.hljs-doctag {
+    color: var(--_code-doctag-color);
+    font-weight: var(--_code-doctag-weight);
+    font-style: var(--_code-doctag-style);
+}
+.hljs-keyword {
+    color: var(--_code-keyword-color);
+    font-weight: var(--_code-keyword-weight);
+    font-style: var(--_code-keyword-style);
+}
+.hljs-meta .hljs-keyword {
+    color: var(--_code-keyword-color);
+    font-weight: var(--_code-keyword-weight);
+    font-style: var(--_code-keyword-style);
+}
+.hljs-template-tag {
+    color: var(--_code-template-tag-color);
+    font-weight: var(--_code-template-tag-weight);
+    font-style: var(--_code-template-tag-style);
+}
+.hljs-template-variable {
+    color: var(--_code-template-variable-color);
+    font-weight: var(--_code-template-variable-weight);
+    font-style: var(--_code-template-variable-style);
+}
+.hljs-type {
+    color: var(--_code-type-color);
+    font-weight: var(--_code-type-weight);
+    font-style: var(--_code-type-style);
+}
+.hljs-variable.language_ {
+    color: var(--_code-variable-language-color);
+    font-weight: var(--_code-variable-language-weight);
+    font-style: var(--_code-variable-language-style);
+}
+
+.hljs-title {
+    color: var(--_code-title-color);
+    font-weight: var(--_code-title-weight);
+    font-style: var(--_code-title-style);
+}
+.hljs-title.class_ {
+    color: var(--_code-title-class-color);
+    font-weight: var(--_code-title-class-weight);
+    font-style: var(--_code-title-class-style);
+}
+.hljs-title.class_.inherited__ {
+    color: var(--_code-title-class-inherited-color);
+    font-weight: var(--_code-title-class-inherited-weight);
+    font-style: var(--_code-title-class-inherited-style);
+}
+.hljs-title.function_ {
+    color: var(--_code-title-function-color);
+    font-weight: var(--_code-title-function-weight);
+    font-style: var(--_code-title-function-style);
+}
+
+.hljs-attr {
+    color: var(--_code-attr-color);
+    font-weight: var(--_code-attr-weight);
+    font-style: var(--_code-attr-style);
+}
+.hljs-attribute {
+    color: var(--_code-attribute-color);
+    font-weight: var(--_code-attribute-weight);
+    font-style: var(--_code-attribute-style);
+}
+.hljs-literal {
+    color: var(--_code-literal-color);
+    font-weight: var(--_code-literal-weight);
+    font-style: var(--_code-literal-style);
+}
+.hljs-meta {
+    color: var(--_code-meta-color);
+    font-weight: var(--_code-meta-weight);
+    font-style: var(--_code-meta-style);
+}
+.hljs-number {
+    color: var(--_code-number-color);
+    font-weight: var(--_code-number-weight);
+    font-style: var(--_code-number-style);
+}
+.hljs-operator {
+    color: var(--_code-operator-color);
+    font-weight: var(--_code-operator-weight);
+    font-style: var(--_code-operator-style);
+}
+.hljs-selector-attr {
+    color: var(--_code-selector-attr-color);
+    font-weight: var(--_code-selector-attr-weight);
+    font-style: var(--_code-selector-attr-style);
+}
+.hljs-selector-class {
+    color: var(--_code-selector-class-color);
+    font-weight: var(--_code-selector-class-weight);
+    font-style: var(--_code-selector-class-style);
+}
+.hljs-selector-id {
+    color: var(--_code-selector-id-color);
+    font-weight: var(--_code-selector-id-weight);
+    font-style: var(--_code-selector-id-style);
+}
+.hljs-variable {
+    color: var(--_code-variable-color);
+    font-weight: var(--_code-variable-weight);
+    font-style: var(--_code-variable-style);
+}
+
+.hljs-meta .hljs-string {
+    color: var(--_code-string-color);
+    font-weight: var(--_code-string-weight);
+    font-style: var(--_code-string-style);
+}
+.hljs-regexp {
+    color: var(--_code-regexp-color);
+    font-weight: var(--_code-regexp-weight);
+    font-style: var(--_code-regexp-style);
+}
+.hljs-string {
+    color: var(--_code-string-color);
+    font-weight: var(--_code-string-weight);
+    font-style: var(--_code-string-style);
+}
+
+.hljs-built_in {
+    color: var(--_code-built_in-color);
+    font-weight: var(--_code-built_in-weight);
+    font-style: var(--_code-built_in-style);
+}
+.hljs-symbol {
+    color: var(--_code-symbol-color);
+    font-weight: var(--_code-symbol-weight);
+    font-style: var(--_code-symbol-style);
+}
+
+.hljs-code {
+    color: var(--_code-code-color);
+    font-weight: var(--_code-code-weight);
+    font-style: var(--_code-code-style);
+}
+.hljs-comment {
+    color: var(--_code-comment-color);
+    font-weight: var(--_code-comment-weight);
+    font-style: var(--_code-comment-style);
+}
+.hljs-formula {
+    color: var(--_code-formula-color);
+    font-weight: var(--_code-formula-weight);
+    font-style: var(--_code-formula-style);
+}
+
+.hljs-name {
+    color: var(--_code-name-color);
+    font-weight: var(--_code-name-weight);
+    font-style: var(--_code-name-style);
+}
+.hljs-quote {
+    color: var(--_code-quote-color);
+    font-weight: var(--_code-quote-weight);
+    font-style: var(--_code-quote-style);
+}
+.hljs-selector-pseudo {
+    color: var(--_code-selector-pseudo-color);
+    font-weight: var(--_code-selector-pseudo-weight);
+    font-style: var(--_code-selector-pseudo-style);
+}
+.hljs-selector-tag {
+    color: var(--_code-selector-tag-color);
+    font-weight: var(--_code-selector-tag-weight);
+    font-style: var(--_code-selector-tag-style);
+}
+
+.hljs-subst {
+    color: var(--_code-subst-color);
+    font-weight: var(--_code-subst-weight);
+    font-style: var(--_code-subst-style);
+}
+
+.hljs-section {
+    color: var(--_code-section-color);
+    font-weight: var(--_code-section-weight);
+    font-style: var(--_code-section-style);
+}
+
+.hljs-bullet {
+    color: var(--_code-bullet-color);
+    font-weight: var(--_code-bullet-weight);
+    font-style: var(--_code-bullet-style);
+}
+
+.hljs-emphasis {
+    color: var(--_code-emphasis-color);
+    font-weight: var(--_code-emphasis-weight);
+    font-style: var(--_code-emphasis-style);
+}
+
+.hljs-strong {
+    color: var(--_code-strong-color);
+    font-weight: var(--_code-strong-weight);
+    font-style: var(--_code-strong-style);
+}
+
+.hljs-addition {
+    color: var(--_code-addition-color);
+    background-color: var(--_code-addition-background-color);
+}
+
+.hljs-deletion {
+    color: var(--_code-deletion-color);
+    color: var(--_code-deletion-background-color);
+}

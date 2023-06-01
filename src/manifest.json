@@ -1,0 +1,13 @@
+{
+  "name": "Skriptá k predmetu Vyvoj webových aplikácií v prostredí Cloud",
+  "short_name": "WAC Skriptá",
+  "start_url": "/",
+  "display": "fullscreen",
+  "icons": [{
+    "src": "assets/icon/icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#ECF1F9",
+  "theme_color": "#ECF1F9"
+}

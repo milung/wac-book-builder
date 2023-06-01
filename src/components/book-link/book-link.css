@@ -1,0 +1,11 @@
+:host {
+  display: inline;
+  color: var(--book-link-color, var(--md-sys-color-tertiary,#00F));
+  cursor: pointer;
+}
+
+
+.new-window {
+  --md-icon-size: 12px;
+  padding-left: 0.1rem;
+}

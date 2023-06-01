@@ -1,0 +1,77 @@
+:host {
+  --book-title-font-family: var(--md-sys-typescale-title-medium-font-family-name, Roboto);
+  --book-title-font-family-style: var(--md-sys-typescale-title-medium-font-family-style, Medium);
+  --book-title-font-weight: var(--md-sys-typescale-title-medium-font-weight, 500px);
+  --book-title-font-size: var(--md-sys-typescale-title-medium-font-size, 16px);
+  --book-title-line-height: var(--md-sys-typescale-title-medium-line-height, 24px);
+  --book-title-letter-spacing: var(--md-sys-typescale-title-medium-letter-spacing, 0.15px);
+  --book-primary-color: var(--md-sys-color-primary);
+  
+  --book-font-size-footer: 0.7rem;
+  --book-text-color: #ccc;
+  --book-text-color-rgb: 136, 136, 136;
+  --book-text-disabled-color: #888;
+  --book-border: 1px solid #ccc;
+  --book-menu-elevation: 2px 0 4px -2px rgba(0, 0, 0, 0.3);
+
+  --topbar-height: 56px;
+  --footer-height: 1.2rem;
+  --sidebar-width: minmax(10rem, 20rem);
+  --content-width: minmax(30rem, 1fr);
+  --menu-width: 360px;
+}
+
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+@import url(grid.css);
+
+topbar {
+  grid-area: topbar;
+  display: grid;
+  grid-template-columns: 80px 1fr 80px;
+  padding-top: 8px;
+  padding-left: 12px;
+  font-family: var(--md-sys-typescale-title-medium-font-family-name, Roboto);
+  font-weight: var(--md-sys-typescale-title-medium-font-weight, 500px);
+  font-size: var(--md-sys-typescale-title-medium-font-size, 16px);
+  line-height: var(--md-sys-typescale-title-medium-line-height, 24px);
+  letter-spacing: var(--md-sys-typescale-title-medium-letter-spacing, 0.15px);
+  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-color-surface);
+  transition: ease-in-out 0.3s
+}
+
+topbar.scrolled {
+  background-color: var(--md-sys-color-surface-container);
+}
+topbar h1 {
+  font-size: var(--book-font-size-title);
+  text-align: center;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+main {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  width: 100%;
+  height: 100%;
+  margin-right: 16px;
+  overflow-x: auto;
+}
+
+
+
+.menu-button {
+  transition: .3s;
+  opacity: 1;
+}
+
+.menu-open .menu-button {
+  opacity: 0;
+}

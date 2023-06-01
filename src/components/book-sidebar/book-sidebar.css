@@ -1,0 +1,105 @@
+:host {
+  display: grid;
+height: 100%;
+overflow-y: auto;
+width: 100%;
+box-sizing: border-box;
+grid-template-columns: 80px 1fr ;
+grid-template-rows: 64px 1fr 42px;
+grid-template-areas:
+  "header header"
+  "content content"
+  "footer footer";
+}
+
+::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+  background-color: var(--highlight-10, rgba(0, 0, 0, 0.1));
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--highlight-20, rgba(0, 0, 0, 0.2));
+  border-radius: 2px;
+}
+
+.header {
+  width: 100%;
+  box-sizing: border-box;
+  height:56px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 28px 0 28px;
+  transition: ease-in-out 0.3s;
+  grid-area: header;
+}
+
+.header.scrolled {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.title {
+  width: 100%;
+  display: grid;
+  align-self: center;
+  font-weight: bolder;
+  font-size: var(--md-sys-typescale-title-medium-font-size, 18px);
+  line-height: var(--md-sys-typescale-title-medium-line-height, 24px);
+  letter-spacing: var(--md-sys-typescale-title-medium-letter-spacing, 0.30px);
+  
+}
+
+.close-button {
+  grid-area: close;
+  align-self: center;
+  flex: 56px 0 0;
+}
+
+h2,h3,h4 {
+  font-weight: bolder;
+  font-size: var(--md-sys-typescale-title-small-font-size, 16px);
+  line-height: var(--md-sys-typescale-title-small-line-height, 24px);
+  letter-spacing: var(--md-sys-typescale-title-small-letter-spacing, 0.15px);
+  /* color: var(--md-sys-color-secondary); */
+}
+
+
+
+.content {
+  grid-area: content;
+  overflow-y: auto;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0px 28px 0 28px;
+}
+
+md-divider {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.footer {
+  grid-area: footer;
+  padding: 8px 16px 8px 16px;
+  font-size: 0.8rem;
+  font-style: italic;
+  opacity: 66%;
+}
+.version {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.author {
+  cursor: pointer;
+}
+
+.cc-by img {
+  height: 24px;
+  width: auto;
+}

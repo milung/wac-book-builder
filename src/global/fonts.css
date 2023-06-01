@@ -1,0 +1,615 @@
+/* roboto-100 - latin_latin-ext */
+@font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-100.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-100.woff') format('woff'); 
+  }
+  
+  /* roboto-100italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 100;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-100italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-100italic.woff') format('woff'); 
+  }
+  
+  /* roboto-300 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-300.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-300.woff') format('woff'); 
+  }
+  
+  /* roboto-300italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 300;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-300italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-300italic.woff') format('woff'); 
+  }
+  
+  /* roboto-regular - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-regular.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-regular.woff') format('woff'); 
+  }
+  
+  /* roboto-italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-italic.woff') format('woff'); 
+  }
+  
+  /* roboto-500 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-500.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-500.woff') format('woff'); 
+  }
+  
+  /* roboto-500italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 500;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-500italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-500italic.woff') format('woff'); 
+  }
+  
+  /* roboto-700 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-700.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-700.woff') format('woff'); 
+  }
+  
+  /* roboto-700italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-700italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-700italic.woff') format('woff'); 
+  }
+  
+  /* roboto-900 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-900.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-900.woff') format('woff'); 
+  }
+  
+  /* roboto-900italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 900;
+    src: url('../assets/fonts/roboto-v30-latin_latin-ext-900italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-v30-latin_latin-ext-900italic.woff') format('woff'); 
+  }
+
+  /* roboto-serif-100 - latin_latin-ext */
+@font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-100.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-100.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-100italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: italic;
+    font-weight: 100;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-100italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-100italic.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-200 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-200.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-200.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-200italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: italic;
+    font-weight: 200;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-200italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-200italic.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-300 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-300.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-300.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-300italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: italic;
+    font-weight: 300;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-300italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-300italic.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-regular - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-regular.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-regular.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-italic.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-500 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-500.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-500.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-500italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: italic;
+    font-weight: 500;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-500italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-500italic.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-600 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-600.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-600.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-600italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: italic;
+    font-weight: 600;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-600italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-600italic.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-700 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-700.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-700.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-700italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-700italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-700italic.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-800 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-800.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-800.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-800italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: italic;
+    font-weight: 800;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-800italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-800italic.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-900 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-900.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-900.woff') format('woff'); 
+  }
+  
+  /* roboto-serif-900italic - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Serif';
+    font-style: italic;
+    font-weight: 900;
+    src: url('../assets/fonts/roboto-serif-v13-latin_latin-ext-900italic.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-serif-v13-latin_latin-ext-900italic.woff') format('woff'); 
+  }
+  /* roboto-condensed-regular - latin_latin-ext */
+  @font-face {
+        font-display: swap; 
+        font-family: 'Roboto Condensed';
+        font-style: normal;
+        font-weight: 400;
+        src: url('../assets/fonts/roboto-condensed-v25-latin_latin-ext-regular.eot'); /* IE9 Compat Modes */
+        src: url('../assets/fonts/roboto-condensed-v25-latin_latin-ext-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('../assets/fonts/roboto-condensed-v25-latin_latin-ext-regular.woff2') format('woff2'), /* Super Modern Browsers */
+            url('../assets/fonts/roboto-condensed-v25-latin_latin-ext-regular.woff') format('woff'), /* Modern Browsers */
+            url('../assets/fonts/roboto-condensed-v25-latin_latin-ext-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+            url('../assets/fonts/roboto-condensed-v25-latin_latin-ext-regular.svg#RobotoCondensed') format('svg'); /* Legacy iOS */
+    }
+
+  /* roboto-flex-regular - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Roboto Flex';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/roboto-flex-v9-latin_latin-ext-regular.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-flex-v9-latin_latin-ext-regular.woff') format('woff'); 
+  }
+
+  /* roboto-mono-regular - latin_latin-ext */
+@font-face {
+    font-display: swap; 
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/roboto-mono-v22-latin_latin-ext-regular.woff2') format('woff2'), 
+         url('../assets/fonts/roboto-mono-v22-latin_latin-ext-regular.woff') format('woff'); 
+  }
+
+  /* roboto-slab-regular - latin_latin-ext */
+@font-face {
+    font-display: swap; 
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/roboto-slab-v24-latin_latin-ext-regular.eot'); /* IE9 Compat Modes */
+    src: url('../assets/fonts/roboto-slab-v24-latin_latin-ext-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../assets/fonts/roboto-slab-v24-latin_latin-ext-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../assets/fonts/roboto-slab-v24-latin_latin-ext-regular.woff') format('woff'), /* Modern Browsers */
+         url('../assets/fonts/roboto-slab-v24-latin_latin-ext-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../assets/fonts/roboto-slab-v24-latin_latin-ext-regular.svg#RobotoSlab') format('svg'); /* Legacy iOS */
+  }
+  
+  
+  /* baloo-2-regular - latin_latin-ext */
+@font-face {
+    font-display: swap; 
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/baloo-2-v16-latin_latin-ext-regular.woff2') format('woff2'), 
+         url('../assets/fonts/baloo-2-v16-latin_latin-ext-regular.woff') format('woff'); 
+  }
+  
+  /* baloo-2-500 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../assets/fonts/baloo-2-v16-latin_latin-ext-500.woff2') format('woff2'), 
+         url('../assets/fonts/baloo-2-v16-latin_latin-ext-500.woff') format('woff'); 
+  }
+  
+  /* baloo-2-600 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../assets/fonts/baloo-2-v16-latin_latin-ext-600.woff2') format('woff2'), 
+         url('../assets/fonts/baloo-2-v16-latin_latin-ext-600.woff') format('woff'); 
+  }
+  
+  /* baloo-2-700 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/baloo-2-v16-latin_latin-ext-700.woff2') format('woff2'), 
+         url('../assets/fonts/baloo-2-v16-latin_latin-ext-700.woff') format('woff'); 
+  }
+  
+  /* baloo-2-800 - latin_latin-ext */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../assets/fonts/baloo-2-v16-latin_latin-ext-800.woff2') format('woff2'), 
+         url('../assets/fonts/baloo-2-v16-latin_latin-ext-800.woff') format('woff'); 
+  }
+  
+  /* chango-regular - latin */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Chango';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/chango-v21-latin_latin-ext-regular.woff2') format('woff2'), 
+         url('../assets/fonts/chango-v21-latin_latin-ext-regular.woff') format('woff'); 
+  }
+  
+  /* material-icons-regular - latin */
+  @font-face {
+    font-display: swap; 
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/material-icons-v140-latin-regular.woff2') format('woff2'), 
+         url('../assets/fonts/material-icons-v140-latin-regular.woff') format('woff'); 
+  }
+  
+  /* material-icons-outlined-regular - latin */
+@font-face {
+    font-display: swap; 
+    font-family: 'Material Icons Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/material-icons-outlined-v109-latin-regular.woff2') format('woff2'), 
+         url('../assets/fonts/material-icons-outlined-v109-latin-regular.woff') format('woff'); 
+  }
+
+  /* material-icons-two-tone-regular - latin */
+@font-face {
+    font-display: swap; 
+    font-family: 'Material Icons Two Tone';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/material-icons-two-tone-v112-latin-regular.woff2') format('woff2'), 
+         url('../assets/fonts/material-icons-two-tone-v112-latin-regular.woff') format('woff'); 
+  }
+  
+  /* material-symbols-outlined-100 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../assets/fonts/material-symbols-outlined-v110-latin-100.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-outlined-v110-latin-100.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-outlined-200 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../assets/fonts/material-symbols-outlined-v110-latin-200.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-outlined-v110-latin-200.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-outlined-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/material-symbols-outlined-v110-latin-300.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-outlined-v110-latin-300.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-outlined-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/material-symbols-outlined-v110-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-outlined-v110-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-outlined-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/fonts/material-symbols-outlined-v110-latin-500.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-outlined-v110-latin-500.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-outlined-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/material-symbols-outlined-v110-latin-600.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-outlined-v110-latin-600.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-outlined-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/material-symbols-outlined-v110-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-outlined-v110-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* material-symbols-rounded-100 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../assets/fonts/material-symbols-rounded-v109-latin-100.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-rounded-v109-latin-100.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-rounded-200 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../assets/fonts/material-symbols-rounded-v109-latin-200.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-rounded-v109-latin-200.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-rounded-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/material-symbols-rounded-v109-latin-300.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-rounded-v109-latin-300.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-rounded-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/material-symbols-rounded-v109-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-rounded-v109-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-rounded-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/fonts/material-symbols-rounded-v109-latin-500.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-rounded-v109-latin-500.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-rounded-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/material-symbols-rounded-v109-latin-600.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-rounded-v109-latin-600.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* material-symbols-rounded-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/material-symbols-rounded-v109-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/material-symbols-rounded-v109-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-display: block;
+  font-weight: 400;
+  src: url("../assets/fonts/fa-brands-400.woff2") format("woff2"), url("../assets/fonts/fa-brands-400.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-display: block;
+  font-weight: 900;
+  src: url("../assets/fonts/fa-solid-900.woff2") format("woff2"), url("../assets/fonts/fa-solid-900.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-display: block;
+  font-weight: 400;
+  src: url("../assets/fonts/fa-regular-400.woff2") format("woff2"), url("../assets/fonts/fa-regular-400.ttf") format("truetype"); }
+@font-face {
+  font-family: 'FontAwesome';
+  font-display: block;
+  src: url("../assets/fonts/fa-solid-900.woff2") format("woff2"), url("../assets/fonts/fa-solid-900.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'FontAwesome';
+  font-display: block;
+  src: url("../assets/fonts/fa-brands-400.woff2") format("woff2"), url("../assets/fonts/fa-brands-400.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'FontAwesome';
+  font-display: block;
+  src: url("../assets/fonts/fa-regular-400.woff2") format("woff2"), url("../assets/fonts/fa-regular-400.ttf") format("truetype");
+  unicode-range: U+F003,U+F006,U+F014,U+F016-F017,U+F01A-F01B,U+F01D,U+F022,U+F03E,U+F044,U+F046,U+F05C-F05D,U+F06E,U+F070,U+F087-F088,U+F08A,U+F094,U+F096-F097,U+F09D,U+F0A0,U+F0A2,U+F0A4-F0A7,U+F0C5,U+F0C7,U+F0E5-F0E6,U+F0EB,U+F0F6-F0F8,U+F10C,U+F114-F115,U+F118-F11A,U+F11C-F11D,U+F133,U+F147,U+F14E,U+F150-F152,U+F185-F186,U+F18E,U+F190-F192,U+F196,U+F1C1-F1C9,U+F1D9,U+F1DB,U+F1E3,U+F1EA,U+F1F7,U+F1F9,U+F20A,U+F247-F248,U+F24A,U+F24D,U+F255-F25B,U+F25D,U+F271-F274,U+F278,U+F27B,U+F28C,U+F28E,U+F29C,U+F2B5,U+F2B7,U+F2BA,U+F2BC,U+F2BE,U+F2C0-F2C1,U+F2C3,U+F2D0,U+F2D2,U+F2D4,U+F2DC; }
+
+@font-face {
+  font-family: 'FontAwesome';
+  font-display: block;
+  src: url("../assets/fonts/fa-v4compatibility.woff2") format("woff2"), url("../assets/fonts/fa-v4compatibility.ttf") format("truetype");
+  unicode-range: U+F041,U+F047,U+F065-F066,U+F07D-F07E,U+F080,U+F08B,U+F08E,U+F090,U+F09A,U+F0AC,U+F0AE,U+F0B2,U+F0D0,U+F0D6,U+F0E4,U+F0EC,U+F10A-F10B,U+F123,U+F13E,U+F148-F149,U+F14C,U+F156,U+F15E,U+F160-F161,U+F163,U+F175-F178,U+F195,U+F1F8,U+F219,U+F27A; }
