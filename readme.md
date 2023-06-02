@@ -78,7 +78,7 @@ You may place a table of content into the file "_toc.html" in the root of the `b
    Example of `_toc.md`:
 
    ```markdown
-   [$graduation-cap> iNTRODUCTION](./README.md)
+   [$graduation-cap> Introduction](./README.md)
    [Prologue](./prologue.md)
 
    <hr />
