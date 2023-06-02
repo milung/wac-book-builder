@@ -1,4 +1,5 @@
 FROM node:latest
+LABEL maintainer="milan.unger@siemens-healthineers.com"
 ARG version=0.0.0
 # Create app directory
 WORKDIR /usr/src/app
@@ -16,5 +17,6 @@ RUN mkdir src/book/; npm run build
 VOLUME /usr/src/app/book-src/
 
 EXPOSE 3333
+EXPOSE 3380
 CMD [ "npm", "start" ]
 
