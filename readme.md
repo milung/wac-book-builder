@@ -1,10 +1,10 @@
 # Book Builder
 
-PWA application for viewing/reading an book generated from the set of markdown files. 
+PWA application for viewing/reading a book generated from the set of markdown files. 
 
 ## Usage 
 
-The project assumes source of the markdown files placed at the `book-src` folder. Nevertheless this is assumed to be available only when mounting it to the docker container. The docker container is then used to generate the book and serve it.
+The project assumes source of the markdown files placed at the `book-src` folder. Nevertheless this is assumed to be available only when mounting it to the docker container. The docker container is then used to generate the book and serve it. Durring development you may create this folder and place there sample files. 
 
 ### Build the docker image
 
@@ -17,15 +17,15 @@ docker build -t book-builder -f build/docker/Dockerfile .
 Create a separate folder/repository with the `book-src` folder inside. The `book-src` folder should contain the markdown files (see below for features supported) and the `_toc.md` file with the table of contents. 
 
 ```bash
-docker run --rm -v <path-to-book-src>://usr/src/app/book-src  -p 8080:3333 book-builder
+docker run --rm -v <path-to-book-src>://usr/src/app/book-src  -p 8080:3380 book-builder
 ```
-This will watch the `book-src` folder for changes and rebuild the book when needed. The book will be served at http://localhost:8080/.
+This will watch the `book-src` folder for changes and rebuild the book when needed. The book will be served at http://localhost:8080/. The page needs to be manually reloaded after the watch rebuilds the book.
 
 ### Build the book server container
 
 Once you are ready with your book you can build the container that will serve it. The container will contain only the static files of the book and will not contain the source markdown files. 
 
-Here is recommended docker file for the book server container:
+Here is recommended docker file for creating a production book server container:
 
 ```dockerfile
 FROM milung/book-builder as book-srv
