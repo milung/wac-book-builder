@@ -70,6 +70,9 @@
     --_code-important-background-color: var(--code-important-background-color, #efc62350);
     
     --_code-prefix-background-color: var(--code-prefix-background-color, #ec660233);
+    --_code-blue-background-color: var(--code-blue-background-color, #2330ef50);
+    --_code-orange-background-color: var(--code-orange-background-color, #feaf066d);
+
     /** keyword like */
     --_code-doctag-color: var(--code-doctag-color, var(--_code-keyword-color));
     --_code-doctag-weight: var(--code-doctag-weight, var(--_code-keyword-weight));

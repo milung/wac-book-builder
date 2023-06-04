@@ -27,7 +27,7 @@ grid-template-areas:
 .header {
   width: 100%;
   box-sizing: border-box;
-  height:56px;
+  height:3.5rem;
   display: flex;
   flex-direction: row;
   padding: 0 28px 0 28px;

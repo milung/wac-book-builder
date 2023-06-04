@@ -20,11 +20,11 @@ export namespace Components {
           * The image alt text.
          */
         "alt": string;
+        "captionFmt": string;
         /**
           * The one-based index of the image in the current document.
          */
         "counter": number;
-        "counterFmt": string;
         /**
           * The image source.
          */
@@ -44,7 +44,6 @@ export namespace Components {
           * Default path to load table of content
          */
         "tocPath": string;
-        "version": string;
     }
     interface BookSidebarState {
         /**
@@ -179,11 +178,11 @@ declare namespace LocalJSX {
           * The image alt text.
          */
         "alt"?: string;
+        "captionFmt"?: string;
         /**
           * The one-based index of the image in the current document.
          */
         "counter"?: number;
-        "counterFmt"?: string;
         /**
           * The image source.
          */
@@ -207,7 +206,6 @@ declare namespace LocalJSX {
           * Default path to load table of content
          */
         "tocPath"?: string;
-        "version"?: string;
     }
     interface BookSidebarState {
         /**

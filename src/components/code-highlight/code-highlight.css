@@ -92,7 +92,7 @@
 
 line-bg {
   width: 100%;
-  display: block;
+  display: inline-block;
   position: relative;
 }
 
@@ -106,7 +106,7 @@ line-bg md-icon {
   --md-icon-size: 16px;
 }
 
-line-bg:hover md-icon {
+line-bg:first-of-type:hover md-icon {
   opacity: 0.3;
 }
 
@@ -137,11 +137,18 @@ line-bg.remove::before {
 
 line-bg.important{
   background-color: var(--_code-important-background-color);
-  text-decoration: line-through;
+}
+
+line-bg.blue{
+  background-color: var(--_code-blue-background-color);
+}
+
+line-bg.orange{
+  background-color: var(--_code-orange-background-color);
 }
 
 line-bg.important::before {
-  content: "-";
+  content: "!";
   color: var(--_code-important-color);
 
 }

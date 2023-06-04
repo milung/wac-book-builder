@@ -13,7 +13,6 @@ export class BookSidebar {
   /** Default path to load table of content */
   @Prop() tocPath: string = "./book/_toc.html";
 
-  @Prop() version: string;
 
 
   @State()
@@ -22,14 +21,30 @@ export class BookSidebar {
   private scrolled: boolean = false; 
 
   private versionString: string = "0.0";
+  private author: string = "unknown";
+  private email: string = "";
+  private description: string = "";
 
   async componentWillLoad() {
     this.content = "Načítavam ... ";
     this.content = await fetch(this.tocPath).then(r => r.text());
-    /* get version from meta tag */
-    let versionTag = document.querySelector("meta[name='version']");
-    if (versionTag) {
-      this.versionString = versionTag.getAttribute("content");
+    
+    const metaNames = ['version', 'author', 'description', 'email'];
+
+    for (const name of metaNames) {
+      const tag = document.querySelector(`meta[name='${name}']`);
+      if (tag) {
+        this[name] = tag.getAttribute('content');
+      }
+    }
+
+    if (this.email) {
+      try {
+        this.email = atob(this.email);
+      } catch (e) {
+        console.log("Error decoding email: " + e);
+        this.email = "";
+      }
     }
   }
 
@@ -58,8 +73,8 @@ export class BookSidebar {
             <span class="cc-by"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="./assets/icon/by.svg"></img></a></span>
             <div class="author" onClick={
               () => { 
-                window.location.href = "mailto:"+ atob("bWlsYW4udW5nZXJAc2llbWVucy1oZWFsdGhpbmVlcnMuY29t") + "?subject=Reakcia k skriptám WAC" }
-            }>Milan Unger, et al.</div>
+                window.location.href = `mailto:${this.email}?subject=${this.description}, ${this.versionString}` }
+            }>{this.author}</div>
             <span>Verzia: {this.versionString}</span>
           </div>
         </div>

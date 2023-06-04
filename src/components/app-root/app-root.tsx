@@ -11,7 +11,7 @@ export class AppRoot {
 
   @Listen('menuClosed')
   menuClosedHandler() {
-    this.menuOpen = false;
+    this.openMenu(false);
   }
 
   @State() theme: string = 'light';
@@ -24,29 +24,38 @@ export class AppRoot {
         <page class={this.menuOpen ? "menu-open" : "menu-closed"}>
           <topbar class={ this.scrolled ? "scrolled" : ""}>
             <md-standard-icon-button class="menu-button"
-                onclick={() => this.menuOpen = true}>
-                <md-icon>menu</md-icon>
-              </md-standard-icon-button>
-            <h1 slot="title">Vývoj webových aplikácií</h1>
-            <md-standard-icon-button onclick={() => this.toggleTheme()}>
-              <md-icon>{this.theme === "light" ? "dark_mode" : "light_mode"}</md-icon>
+              onclick={() => this.openMenu(true)}>
+              <md-icon>menu</md-icon>
             </md-standard-icon-button>
+            <h1 slot="title">Vývoj webových aplikácií</h1>
+            <div topbar-tools>
+              
+              <md-standard-icon-button onclick={() => this.changeFontSize(-1)}>
+                <md-icon>text_decrease</md-icon>
+              </md-standard-icon-button>
+              <md-standard-icon-button onclick={() => this.changeFontSize(+1)}>
+                <md-icon>text_increase</md-icon>
+              </md-standard-icon-button>
+              <md-standard-icon-button onclick={() => this.toggleTheme()}>
+                <md-icon>{this.theme === "light" ? "dark_mode" : "light_mode"}</md-icon>
+              </md-standard-icon-button>
+            </div>
           </topbar>
-          <mdl-menu class="menu"  onClick={ () => {
+          <mdl-menu class="menu" onClick={() => {
             /** close only if navigation drawer is in modal form */
             const mediaQuery = window.matchMedia('(max-width: 60rem)');
             if (mediaQuery.matches) {
-              this.menuOpen = false
+              this.openMenu(false);
             }
           }}>
             <book-sidebar ></book-sidebar>
           </mdl-menu>
           <main>
-            <book-chapter 
+            <book-chapter
               onScroll={(ev: Event) => {
                 this.scrolled = (ev.target as HTMLElement).scrollTop > 8;
               }
-            }
+              }
             ></book-chapter>
           </main>
         </page>
@@ -58,7 +67,7 @@ export class AppRoot {
     this.initTheme();
   }
 
-  private setTheme(themeName) {
+  private setTheme(themeName: string) {
     localStorage.setItem('theme', themeName);
     this.theme = themeName;
     document.documentElement.className = 'theme-' + themeName;
@@ -71,6 +80,19 @@ export class AppRoot {
       this.setTheme('dark');
     }
   }
+
+  private openMenu(open: boolean) {
+    this.menuOpen = open;
+    localStorage.setItem('menuOpen', this.menuOpen ? 'true' : 'false');
+  }
+
+  private changeFontSize(delta: number) {
+    const html = document.querySelector('html');
+    const fontSize = parseInt(window.getComputedStyle(html).fontSize);
+    html.style.fontSize = fontSize + fontSize*0.2*delta + 'px';
+    localStorage.setItem('fontSize', html.style.fontSize);
+  }
+
   // Immediately invoked function to set the theme on initial load
   private initTheme() {
     if (localStorage.getItem('theme') === 'dark') {
@@ -78,6 +100,16 @@ export class AppRoot {
     } else {
       this.setTheme('light');
     }
+    const fontSize = localStorage.getItem('fontSize');
+    if (fontSize) {
+      document.querySelector('html').style.fontSize = fontSize;
+    }
+
+    const menuOpen = localStorage.getItem('menuOpen');
+    if (menuOpen) {
+      this.menuOpen = menuOpen === 'true';
+    }
+
   };
 
 }

@@ -23,7 +23,19 @@ function readOptions() {
 
 
 const version = args.version || 'v0.0';
+const author = args.author || 'unknown';
+const email = args.email || 'unknown';
+const emailB64 = Buffer.from(email).toString('base64');
+const title = args.title || 'Textbook';
+const description = args.description || 'Textbook';
+const imageCaption = args["image-caption"] || 'Figure %d.';
 
-const content = fs.readFileSync('./src/index.html', 'utf8');
-const newContent = content.replace(/<meta version="[^"]*">/g, `<meta version="${version}">`);
-fs.writeFileSync('./src/index.html', newContent, 'utf8');
+let content = fs.readFileSync('./www/index.html', 'utf8');
+content = content.replace(/<meta name="version" content="[^"]*">/g, `<meta name="version" content="${version}">`);
+content = content.replace(/<meta name="author" content="[^"]*">/g, `<meta name="author" content="${author}">`);
+content = content.replace(/<meta name="email" content="[^"]*">/g, `<meta name="email" content="${emailB64}">`);
+content = content.replace(/<meta name="Description" content="[^"]*">/g, `<meta name="Description" content="${description}">`);
+content = content.replace(/<meta name="image-caption" content="[^"]*">/g, `<meta name="image-caption" content="${imageCaption}">`);
+content = content.replace(/<title>[^>]*<\/title>/g, `<title>${title}</title>`);
+
+fs.writeFileSync('./www/index.html', content, 'utf8');
