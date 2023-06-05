@@ -34,7 +34,7 @@ let content = fs.readFileSync('./www/index.html', 'utf8');
 content = content.replace(/<meta name="version" content="[^"]*">/g, `<meta name="version" content="${version}">`);
 content = content.replace(/<meta name="author" content="[^"]*">/g, `<meta name="author" content="${author}">`);
 content = content.replace(/<meta name="email" content="[^"]*">/g, `<meta name="email" content="${emailB64}">`);
-content = content.replace(/<meta name="Description" content="[^"]*">/g, `<meta name="Description" content="${description}">`);
+content = content.replace(/<meta name="description" content="[^"]*">/g, `<meta name="description" content="${description}">`);
 content = content.replace(/<meta name="image-caption" content="[^"]*">/g, `<meta name="image-caption" content="${imageCaption}">`);
 content = content.replace(/<title>[^>]*<\/title>/g, `<title>${title}</title>`);
 

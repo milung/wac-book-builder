@@ -20,7 +20,7 @@ export class BookSidebar {
   @State()
   private scrolled: boolean = false; 
 
-  private versionString: string = "0.0";
+  private version: string = "0.0";
   private author: string = "unknown";
   private email: string = "";
   private description: string = "";
@@ -73,9 +73,9 @@ export class BookSidebar {
             <span class="cc-by"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="./assets/icon/by.svg"></img></a></span>
             <div class="author" onClick={
               () => { 
-                window.location.href = `mailto:${this.email}?subject=${this.description}, ${this.versionString}` }
+                window.location.href = `mailto:${this.email}?subject=${this.description}, (${this.version})` }
             }>{this.author}</div>
-            <span>Verzia: {this.versionString}</span>
+            <span>Verzia: {this.version}</span>
           </div>
         </div>
       </Host>
