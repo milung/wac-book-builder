@@ -21,6 +21,7 @@ docker run --rm -v <path-to-book-src>://usr/src/app/book-src  -p 3380:3380 book-
 ```
 This will watch the `book-src` folder for changes and rebuild the book when needed. The book will be served at http://localhost:3380/. The page needs to be manually reloaded after the watch rebuilds the book, and port shall be 3380 to make SPA routing work.
 
+
 ### Build the book server container
 
 Once you are ready with your book you can build the container that will serve it. The container will contain only the static files of the book and will not contain the source markdown files. 

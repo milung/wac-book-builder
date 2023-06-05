@@ -32,4 +32,3 @@ VOLUME /usr/src/app/book-src/
 EXPOSE 3333
 EXPOSE 3380
 CMD [ "npm", "run", "serve-spa" ]
-
