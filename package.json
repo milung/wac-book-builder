@@ -4,14 +4,16 @@
   "version": "0.0.1",
   "description": "Stencil Ionic App Starter",
   "scripts": {
-    "build": "stencil build",
-    "start": "concurrently --kill-others \"npm run makehtml:watch\" \"stencil build --dev --watch --serve\" \"node ./dev-utils/dev-proxy.js\"",
+    "build": "stencil build --prod",
+    "start": "concurrently --kill-others  \"npm run makehtml:watch\" \"stencil build --dev --watch --serve\"",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "makehtml": "node ./build/makehtml/makehtml.js",
-    "makehtml:watch": "node ./build/makehtml/makehtml.js --watch",
-    "dev-proxy": "node ./dev-utils/dev-proxy.js"
+    "makehtml": "node ./build/makehtml/makehtml.mjs",
+    "makehtml:watch": "node ./build/makehtml/makehtml.mjs --watch --verbose",
+    "serve-spa": "concurrently --kill-others  \"node ./build/makehtml/makehtml.mjs  --verbose --target ./www/book --watch \" \"npx http-server ./www/ --proxy http://localhost:3380? --port 3380\"",
+    "dev-proxy": "node ./dev-utils/dev-proxy.js",
+    "version": "node ./build/makehtml/version.js"
   },
   "devDependencies": {
     "@stencil/core": "3.2.0",
@@ -22,8 +24,8 @@
     "ionicons": "^7.1.0",
     "jest": "^29.5.0",
     "jest-cli": "^29.5.0",
+    "marked": "^5.0.4",
     "puppeteer": "^19.8.0",
-    "showdown": "^2.1.0",
     "workbox-build": "^4.3.1"
   },
   "license": "MIT",

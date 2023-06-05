@@ -19,11 +19,19 @@ export class BookImg {
   /**
    * The one-based index of the image in the current document.
    */
-  @Prop() counter: number;
+  @Prop() counter: number = 0;
 
-  @Prop() counterFmt: string = "Obrázok %d.";
+  @Prop() captionFmt: string = "Figure %d.";
 
   @State() modal: boolean = false;
+
+  componentWillLoad() {
+    /* get counterFmt from meta tag */
+    const meta = document.querySelector("meta[name='book-img-counter-fmt']");
+    if (meta) {
+      this.captionFmt = meta.getAttribute("content");
+    }
+  }
 
   render() {
     return (
@@ -31,7 +39,10 @@ export class BookImg {
         <div class={ "wrapper" + ( this.modal ? " modal": "")} onClick={() => this.modal = !this.modal}>
             <img src={this.src} alt={this.alt} />
             <div class="label">
-              <span class="counter">{this.counterFmt.replace("%d", this.counter.toString())}</span>
+              {this.counter > 0
+              ? <span class="counter">{this.captionFmt.replace("%d", this.counter.toString())}</span>
+              : undefined
+              }
               &nbsp;
               <span class="alt">{this.alt}</span>
             </div>
@@ -40,7 +51,10 @@ export class BookImg {
         ?  <div class="wrapper">
           <img src={this.src} alt={this.alt} />
           <div class="label">
-            <span class="counter">{this.counterFmt.replace("%d", this.counter.toString())}</span>
+          {this.counter > 0
+              ? <span class="counter">{this.captionFmt.replace("%d", this.counter.toString())}</span>
+              : undefined
+              }
             &nbsp;
             <span class="alt">{this.alt}</span>
           </div>

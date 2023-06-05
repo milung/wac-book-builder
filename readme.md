@@ -17,35 +17,57 @@ docker build -t book-builder -f build/docker/Dockerfile .
 Create a separate folder/repository with the `book-src` folder inside. The `book-src` folder should contain the markdown files (see below for features supported) and the `_toc.md` file with the table of contents. 
 
 ```bash
-docker run --rm -v <path-to-book-src>://usr/src/app/book-src  -p 8080:3380 book-builder
+docker run --rm -v <path-to-book-src>://usr/src/app/book-src  -p 3380:3380 book-builder
 ```
-This will watch the `book-src` folder for changes and rebuild the book when needed. The book will be served at http://localhost:8080/. The page needs to be manually reloaded after the watch rebuilds the book.
+This will watch the `book-src` folder for changes and rebuild the book when needed. The book will be served at http://localhost:3380/. The page needs to be manually reloaded after the watch rebuilds the book, and port shall be 3380 to make SPA routing work.
+
 
 ### Build the book server container
 
 Once you are ready with your book you can build the container that will serve it. The container will contain only the static files of the book and will not contain the source markdown files. 
 
-Here is recommended docker file for creating a production book server container:
+Here is a recommended dockerfile for creating a production book server container:
 
 ```dockerfile
-FROM milung/book-builder as book-srv
-ARG version=0.0.0
+FROM milung/book-builder as book-builder
+LABEL maintainer="your@organization.com"
+ARG version=latest
+ARG title="Book Title"
+ARG description="Book description"
+ARG author="Thats You"
+ARG email="your@organization.com"
+ARG figure_caption="Figure %d."
+
 WORKDIR /usr/src/app
-
 COPY book-src/ book-src/
+COPY favicon.ico ./src/assets/icon/favicon.ico
+COPY favicon.png ./src/assets/icon/favicon.png
 
-RUN npm run makehtml
+#generate book
+RUN node ./build/makehtml/makehtml.mjs  --verbose --version ${version} 
+
 RUN npm run build
-RUN node build/makehtml/version.js --version ${version}
 
-FROM donatowolfisberg/spa-server as spa-builder
+# generate index.html
+RUN node build/makehtml/version.js \
+     --version ${version} \
+     --title "${title}" \
+     --description "${description}" \
+     --author "${author}" \
+     --email "${email}" \
+     --image-caption "${figure_caption}" 
 
-COPY --from=book-srv /usr/src/app/www public
+## build SPA server executable
+FROM milung/spa-server as spa-builder
+
+COPY --from=book-builder /usr/src/app/www public
 RUN ./build.sh
 
+## final server image - listens on port 8080
 FROM scratch
 
-COPY --from=builder /app/server /server
+COPY --from=spa-builder /app/server /server
+EXPOSE 8080
 CMD ["/server"] 
 ```
 
@@ -53,7 +75,7 @@ The generated server is SPA server, see details of configuration options at http
 
 ## Markdown features supported
 
-The markdown files are processed by the [showdown.js](https://showdownjs.com/) with some dedicated extensions. The following extensions are supported:
+The markdown files are processed by the [marked](https://marked.js.org/) with some dedicated extensions. The following extensions are supported:
 
 ### Symbolic links
 All files will automatically include `_links.md` file from the root of the `book-src` folder. This file may contain hyperlinks to be included in all files by reference. Example: 
@@ -93,7 +115,7 @@ You may place a blockquote with an icon by the following syntax: `>$icon-name:> 
 
 ### Highlighted code blocks
 
-You may place a highlighted code block by the following syntax: `>```language`. The language is the name of the language for the syntax highlighting. Inside the block you may mark a line as inserted by placing the text `@_add_@` on that line; or you may mark a line as removed by placing the text `@_remove_@` on that line; or you may mark a line as important by placing the text `@_important_@` on that line. The rendering of that line will be highlighted by the corresponding color. Additionally, you may place text `@_empty_line_@` on the line to mark it as empty. This option is provided for the cases where showdown suddenly breaks the code block from unknown reasons.
+You may place a highlighted code block by the following syntax: `>```language`. The language is the name of the language for the syntax highlighting. Inside the block you may mark a line as inserted by placing the text `@_add_@` on that line; or you may mark a line as removed by placing the text `@_remove_@` on that line; or you may mark a line as important by placing the text `@_important_@` on that line. The rendering of that line will be highlighted by the corresponding color. 
 
 ### Limitations
 It is possible that some features of the markdown will be not rendered properly. The builder is specifically designed to serve particular textbook and it is not intended to be used for general purpose. In case you see issues with the rendering, please, create an issue and we will try to fix it.

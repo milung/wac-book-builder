@@ -7,7 +7,7 @@
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   text-align: justify;
-  max-width: 50rem;
+  max-width: 60rem;
 margin-left: auto;
 margin-right: auto;
 overflow-y: auto;
@@ -53,6 +53,10 @@ blockquote
   margin: 8px 0;
   color: var(--md-sys-color-on-surface-variant);
   border-left: 2px solid var(--md-sys-color-tertiary);
+  border-right: 2px solid var(--md-sys-color-tertiary);
   padding-left: 16px;
+  background-color: color-mix(in srgb, var(--md-sys-color-surface-variant), transparent 80%);
+  padding: 4px 8px;
+  border-radius: 8px;
 }
 
