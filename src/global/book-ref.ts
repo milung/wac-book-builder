@@ -3,7 +3,17 @@ export class BookRef {
     static baseUri = document.baseURI || "/";
     static bookBase = "book/";
 
-    static version = "1.0.0";
+    private static  _version: string;
+    static get version(){
+        //from meta tag 
+        if(!BookRef._version) {
+            const meta = document.querySelector("meta[name='version']");
+            if(meta) {
+                BookRef._version = meta.getAttribute("content");
+            }
+        }
+        return BookRef._version;
+    };
 
     public isExternal = false;
     private constructor(private location: string) { 
@@ -59,44 +69,6 @@ export class BookRef {
     }
 
     public async fetchContent(): Promise<string> {
-        return fetch(BookRef.baseUri + BookRef.bookBase + this.location + ".html?v=" + BookRef.version).then(r => r.text());
-    }
-
-    public async fetchSidebar(): Promise<string> {
-        const fragments = (this.location + "a").split("/")
-        const toCache: string[] = [];
-        let response: Response;
-        while (fragments.length >= 0) {
-            fragments.pop();
-            const path = fragments.join("/");
-
-            let cachedPath = localStorage.getItem(`sidebarPath@${path}`);
-            if(!cachedPath) {
-                toCache.push(path);
-                cachedPath = path;
-            }
-            if(cachedPath) {
-                cachedPath += "/";
-            }
-            const sidebarPath = BookRef.baseUri + BookRef.bookBase + cachedPath + "_sidebar.html?v=" + BookRef.version;
-            try {
-
-                response = await fetch(sidebarPath);
-                if (response.status > 199 && response.status < 300) {
-                    break;
-                }
-            }
-            catch (e) {
-                console.log(e);
-            }
-        }
-        // step up the path and try again
-
-        if (response) {
-            toCache.forEach( p => localStorage.setItem(`sidebarPath@${p}`, fragments.join("/")));
-            return await response.text();
-        } else {
-            return "No navigation found";
-        }
+        return fetch(BookRef.baseUri + BookRef.bookBase + this.location + ".html?rev=" + BookRef.version).then(r => r.text());
     }
 }

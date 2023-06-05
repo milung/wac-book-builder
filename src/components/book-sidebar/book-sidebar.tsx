@@ -20,14 +20,13 @@ export class BookSidebar {
   @State()
   private scrolled: boolean = false; 
 
-  private version: string = "0.0";
+  private version: string = "latest";
   private author: string = "unknown";
   private email: string = "";
   private description: string = "";
 
   async componentWillLoad() {
-    this.content = "Načítavam ... ";
-    this.content = await fetch(this.tocPath).then(r => r.text());
+    this.content = "Načítavam ... ";   
     
     const metaNames = ['version', 'author', 'description', 'email'];
 
@@ -46,6 +45,9 @@ export class BookSidebar {
         this.email = "";
       }
     }
+
+    this.tocPath +=  (this.tocPath.includes("?") ? "&" : "?") + `rev=${this.version}` 
+    this.content = await fetch(this.tocPath).then(r => r.text());
   }
 
 
