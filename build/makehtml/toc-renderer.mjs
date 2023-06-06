@@ -33,7 +33,7 @@ class TocRenderer extends marked.Renderer {
     }
 }
 
-function preprocess_includes(content, sourceFilePath, opts = {}) {
+function preprocess_includes(content, sourceFilePath, opts) {
     const { sourceDir } = opts;
     const dirname = path.dirname(sourceFilePath);
     return content.replaceAll(/^\[#include ([^\]]*)\]/gm, (match, file) => {
@@ -41,7 +41,7 @@ function preprocess_includes(content, sourceFilePath, opts = {}) {
         const filePath = path.join(dirname, file);
         const localDirname = path.dirname(filePath);
         let relativeDir = path.relative(sourceDir, localDirname).replaceAll("\\", "/");
-        let localContent = fsSync.readFileSync(filePath, 'utf8');
+        let localContent = "\r\n" + fsSync.readFileSync(filePath, 'utf8');
         localContent = localContent.replaceAll(/\]\(([^\)]*)\)/g, (match, ref) => {
             if (ref.startsWith('http')) {
                 return match;
@@ -49,7 +49,7 @@ function preprocess_includes(content, sourceFilePath, opts = {}) {
             return '](' + path.join(relativeDir, ref).replaceAll("\\", "/") + ')';
         });
 
-        return `<book-section path="${relativeDir}">\r\n` + preprocess_includes(localContent, filePath) + "\r\n</book-section>";
+        return `<book-section path="${relativeDir}">\r\n` + preprocess_includes(localContent, filePath, opts) + "\r\n</book-section>";
     });
 }
 

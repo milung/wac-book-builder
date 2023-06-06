@@ -72,6 +72,7 @@ export class AppRoot {
     this.theme = themeName;
     document.documentElement.className = 'theme-' + themeName;
   }
+  
   // function to toggle between light and dark theme
   private toggleTheme() {
     if (localStorage.getItem('theme') === 'dark') {

@@ -45,6 +45,7 @@ h1,
 h2,
 h3 {
   color: var(--md-sys-color-secondary);
+  line-height: 2.5rem;
 }
 
 

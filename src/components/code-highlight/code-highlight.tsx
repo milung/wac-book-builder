@@ -13,8 +13,9 @@ import css from 'highlight.js/lib/languages/css';
 import http from 'highlight.js/lib/languages/http';
 import dockerfile from 'highlight.js/lib/languages/dockerfile';
 import plaintext from 'highlight.js/lib/languages/plaintext';
-
-
+import csharp from 'highlight.js/lib/languages/csharp';
+import curl from 'highlightjs-curl';
+import nginx from 'highlight.js/lib/languages/nginx';
 
 @Component({
   tag: 'code-highlight',
@@ -42,6 +43,8 @@ export class CodeHighlight {
   static registerLanguages() {
     hljs.registerLanguage('bash', bash);
     hljs.registerLanguage('css', css);
+    hljs.registerLanguage('csharp', csharp);
+    hljs.registerLanguage('curl', curl);
     hljs.registerLanguage('go', golang);
     hljs.registerLanguage('http', http);
     hljs.registerLanguage('javascript', javascript);
@@ -52,6 +55,7 @@ export class CodeHighlight {
     hljs.registerLanguage('yaml', yaml);
     hljs.registerLanguage('dockerfile', dockerfile);
     hljs.registerLanguage('plaintext', plaintext);
+    hljs.registerLanguage('nginx', nginx);
 
     hljs.registerAliases(['golang'], { languageName: 'go' });
     hljs.registerAliases(['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist'],{ languageName: 'xml' } );
@@ -66,6 +70,8 @@ export class CodeHighlight {
     hljs.registerAliases(['yml'], { languageName: 'yaml' });
     hljs.registerAliases(['plain', 'text'], { languageName: 'plaintext' });
     hljs.registerAliases(['docker'], { languageName: 'dockerfile' });
+    hljs.registerAliases(['cs'], { languageName: 'csharp' });
+    hljs.registerAliases(['nginxconf'], { languageName: 'nginx' });
   }
 
   private code: string;
