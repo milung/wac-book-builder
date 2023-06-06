@@ -39,3 +39,9 @@ content = content.replace(/<meta name="image-caption" content="[^"]*">/g, `<meta
 content = content.replace(/<title>[^>]*<\/title>/g, `<title>${title}</title>`);
 
 fs.writeFileSync('./www/index.html', content, 'utf8');
+
+let manifest = fs.readFileSync('./www/manifest.json', 'utf8');
+manifest = manifest.replace(/"name": "[^"]*"/g, `"name": "${description}"`);
+manifest = manifest.replace(/"short_name": "[^"]*"/g, `"short_name": "${title}"`);
+
+fs.writeFileSync('./www/manifest.json', manifest, 'utf8');
