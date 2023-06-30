@@ -24,9 +24,11 @@ async function walkFiles(opts = {}) {
     const { sourceDir, targetDir, verbose } = opts;
 
     const linksPath = path.join(sourceDir, '_links.md');
-    opts.links = await fs.readFile(linksPath, 'utf8');;
+    opts.links = await fs.readFile(linksPath, 'utf8');
 
-    for await (const file of walk(sourceDir)) {
+    const fileIterator = opts.files || walk(sourceDir)
+
+    for await (const file of fileIterator) {
         let targetPath = rebase_path(sourceDir, targetDir, file);
         /* compare files timestamps */
         const sourceStat = await fs.stat(file);
@@ -39,7 +41,7 @@ async function walkFiles(opts = {}) {
             targetPath = targetPath.replace('.md', '.html');
             try {
                 const targetStat = await fs.stat(targetPath);
-                if (sourceStat.mtimeMs <= targetStat.mtimeMs && !opts.force) {
+                if (sourceStat.mtimeMs <= targetStat.mtimeMs && !opts.force && !opts.files?.findIndex(file) === -1 ) {
                     continue;
                 }
             } catch (e) {
@@ -94,7 +96,8 @@ async function main() {
             console.log('watching');
             var gaze = new Gaze(`${options.sourceDir}/**/*`);
             gaze.on('all', async function (event, filepath) {
-                await convert(options); // run on watch change
+                console.log(`File ${filepath} was ${event}`);
+                await convert({ ...options, files: [filepath]}); // run on watch change
                 console.log('done - still watching');
             });
 
