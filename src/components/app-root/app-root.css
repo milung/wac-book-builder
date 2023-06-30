@@ -75,3 +75,15 @@ main {
 .menu-open .menu-button {
   opacity: 0;
 }
+
+::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+  background-color: var(--highlight-10, rgba(0, 0, 0, 0.1));
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--highlight-20, rgba(0, 0, 0, 0.2));
+  border-radius: 2px;
+}

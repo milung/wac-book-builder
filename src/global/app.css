@@ -98,72 +98,14 @@ body { /*typography scale-rem based */
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* material-symbols-sharp-100 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Material Symbols Sharp';
-  font-style: normal;
-  font-weight: 100;
-  src: url('../assets/fonts/material-symbols-sharp-v106-latin-100.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-       url('../assets/fonts/material-symbols-sharp-v106-latin-100.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+:root::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+  background-color: var(--highlight-10, rgba(0, 0, 0, 0.1));
+  border-radius: 2px;
 }
 
-/* material-symbols-sharp-200 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Material Symbols Sharp';
-  font-style: normal;
-  font-weight: 200;
-  src: url('../assets/fonts/material-symbols-sharp-v106-latin-200.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-       url('../assets/fonts/material-symbols-sharp-v106-latin-200.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* material-symbols-sharp-300 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Material Symbols Sharp';
-  font-style: normal;
-  font-weight: 300;
-  src: url('../assets/fonts/material-symbols-sharp-v106-latin-300.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-       url('../assets/fonts/material-symbols-sharp-v106-latin-300.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* material-symbols-sharp-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Material Symbols Sharp';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../assets/fonts/material-symbols-sharp-v106-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-       url('../assets/fonts/material-symbols-sharp-v106-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* material-symbols-sharp-500 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Material Symbols Sharp';
-  font-style: normal;
-  font-weight: 500;
-  src: url('../assets/fonts/material-symbols-sharp-v106-latin-500.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-       url('../assets/fonts/material-symbols-sharp-v106-latin-500.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* material-symbols-sharp-600 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Material Symbols Sharp';
-  font-style: normal;
-  font-weight: 600;
-  src: url('../assets/fonts/material-symbols-sharp-v106-latin-600.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-       url('../assets/fonts/material-symbols-sharp-v106-latin-600.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* material-symbols-sharp-700 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Material Symbols Sharp';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../assets/fonts/material-symbols-sharp-v106-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-       url('../assets/fonts/material-symbols-sharp-v106-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
+:root::-webkit-scrollbar-thumb {
+  background: var(--highlight-20, rgba(0, 0, 0, 0.2));
+  border-radius: 2px;
+} 
