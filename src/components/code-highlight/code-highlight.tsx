@@ -74,7 +74,6 @@ export class CodeHighlight {
     hljs.registerAliases(['nginxconf'], { languageName: 'nginx' });
   }
 
-  private code: string;
   private lines: { index:number, type: string, text: string}[] = [];
   @State() highlight: string;
 
@@ -83,12 +82,21 @@ export class CodeHighlight {
       <Host>
         <div class="wrapper">
           <pre>
-            <div class="hljs" innerHTML={this.highlight} onClick={ (ev:Event)=>this.onLineClick(ev)}></div> 
+            <div class="hljs" innerHTML={this.highlight} onClick={ (ev:Event)=>this.onLineClick(ev)}
+            // handle Ctrl + C on highlighted code
+            onCopy={(ev:ClipboardEvent) => {
+              ev.preventDefault();
+              const text = window.getSelection()?.toString() ?? '';
+              const lines = text.split('\n').filter(l => !l.includes('content_copy'));
+              ev.clipboardData.setData('text/plain', lines.join('\n'));
+            }}
+            ></div> 
           </pre>
           <div class="tools">
             <div class="lang-label">{hljs.getLanguage(this.language)?.name}</div>
             <md-standard-icon-button  class="copy" onClick={() => {
-              navigator.clipboard.writeText(this.code);
+              const code = this.lines.filter(l => l.type !== 'remove').join('\n');
+              navigator.clipboard.writeText(code);
             }}><md-icon>content_copy</md-icon></md-standard-icon-button>
           </div>
         </div>
@@ -103,7 +111,7 @@ export class CodeHighlight {
     code = decode(code);
 
     this.lines = [];
-    this.code = code.split('\n').map((line, index) => {
+    code = code.split('\n').map((line, index) => {
       /** match regex and take first group*/
       const regex = /@_([a-z\-_]+)_@/;
       const pfxRegex = /<[pP]fx>/g;
@@ -111,19 +119,16 @@ export class CodeHighlight {
       if (match) {
         line = line.replace(regex, '');
         this.lines.push({ index, type: match[1], text: line });
-        if (match[1] === 'remove') {
-          return null;
-        }
         return line.replace(pfxRegex, '__pfx__'); 
       }
       return line.replace(pfxRegex, '__pfx__');
     }).filter(l => l !== null).join('\n');
     
     try {
-      this.highlight = hljs.highlight(this.code, { language: this.language, ignoreIllegals: true },).value;
+      this.highlight = hljs.highlight(code, { language: this.language, ignoreIllegals: true },).value;
     } catch (e) {
       console.log(e);
-      this.highlight = this.code;
+      this.highlight = code;
     }
 
     this.highlight = this.highlight.split('\n').map((line, index) => {
@@ -148,10 +153,10 @@ export class CodeHighlight {
       let codeLineIndex = +indexAttr;
       
       const lines: string[] = [];
-      let backgroundType = "";
 
       let bgIndex =  this.lines.findIndex(l => l.index === +codeLineIndex);
-      while( bgIndex > -1 && (!backgroundType || backgroundType === this.lines[bgIndex].type)) {
+      let backgroundType = bgIndex > -1 ? this.lines[bgIndex].type : "";
+      while( bgIndex > -1 && backgroundType === this.lines[bgIndex].type) {
         lines.push(this.lines[bgIndex].text);
         backgroundType = this.lines[bgIndex].type;
         codeLineIndex++;

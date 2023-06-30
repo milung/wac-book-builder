@@ -141,6 +141,7 @@ line-bg.important{
 
 line-bg.blue{
   background-color: var(--_code-blue-background-color);
+  font-weight: bolder;
 }
 
 line-bg.orange{

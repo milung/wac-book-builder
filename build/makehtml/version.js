@@ -21,7 +21,6 @@ function readOptions() {
     return options;
 }
 
-
 const version = args.version || 'v0.0';
 const author = args.author || 'unknown';
 const email = args.email || 'unknown';
