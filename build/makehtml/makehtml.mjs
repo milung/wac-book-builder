@@ -1,9 +1,9 @@
 import fs from "fs/promises";
 import path from "path";
-import Gaze from 'gaze';
 import { readOptions } from './read-options.mjs';
 import { convert_chapter } from './chapter-renderer.mjs';
 import { convert_toc } from './toc-renderer.mjs';
+import * as watcher from '@parcel/watcher';
 
 
 async function* walk(dir) {
@@ -41,7 +41,7 @@ async function walkFiles(opts = {}) {
             targetPath = targetPath.replace('.md', '.html');
             try {
                 const targetStat = await fs.stat(targetPath);
-                if (sourceStat.mtimeMs <= targetStat.mtimeMs && !opts.force && !opts.files?.findIndex(file) === -1 ) {
+                if (sourceStat.mtimeMs <= targetStat.mtimeMs && !opts.force && !opts.files?.findIndex(file) === -1) {
                     continue;
                 }
             } catch (e) {
@@ -92,23 +92,38 @@ async function main() {
 
     try {
         await convert(options); // first run        
-        if (options.watch) {
-            console.log('watching');
-            var gaze = new Gaze(`${options.sourceDir}/**/*`);
-            gaze.on('all', async function (event, filepath) {
-                console.log(`File ${filepath} was ${event}`);
-                await convert({ ...options, files: [filepath]}); // run on watch change
-                console.log('done - still watching');
+        while (options.watch) {
+
+            let error = false;
+            let subscription = await watcher.subscribe(options.sourceDir, async (err, events) => {
+                if (err) {
+                    console.error(err);
+                    return
+                }
+                if (events.length === 0) {
+                    return;
+                }
+                for( const event of events) {
+                    console.log(`File ${event.path} was ${event.type}`);
+                    if (event.type === 'delete') {
+                        continue;
+                    }
+                    await convert({ ...options, files: [event.path]}); // run on watch change
+                    console.log('done - still watching');
+                }
             });
+
+            console.log('watching');
 
             function sleep(ms) {
                 return new Promise((resolve) => {
                     setTimeout(resolve, ms);
                 });
             }
-            while (true) { // keep alive
+            while (!error) { // keep alive
                 await sleep(300);
             }
+            await subscription.unsubscribe();
         }
     } catch (e) {
         console.error(e);
