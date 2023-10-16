@@ -18,6 +18,7 @@ import curl from 'highlightjs-curl';
 import nginx from 'highlight.js/lib/languages/nginx';
 import handlebars from 'highlight.js/lib/languages/handlebars';
 import lua from 'highlight.js/lib/languages/lua';
+import properties from 'highlight.js/lib/languages/properties';
 
 @Component({
   tag: 'code-highlight',
@@ -60,6 +61,7 @@ export class CodeHighlight {
     hljs.registerLanguage('nginx', nginx);
     hljs.registerLanguage('handlebars', handlebars);
     hljs.registerLanguage('lua', lua);
+    hljs.registerLanguage('properties', properties);
 
     hljs.registerAliases(['golang'], { languageName: 'go' });
     hljs.registerAliases(['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist'],{ languageName: 'xml' } );
@@ -77,6 +79,7 @@ export class CodeHighlight {
     hljs.registerAliases(['cs'], { languageName: 'csharp' });
     hljs.registerAliases(['nginxconf'], { languageName: 'nginx' });
     hljs.registerAliases(['mustache'], { languageName: 'handlebars' });
+    hljs.registerAliases(['env'], { languageName: 'properties' });
   }
 
   private lines: { index:number, type: string, text: string}[] = [];
