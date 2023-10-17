@@ -57,12 +57,12 @@ export class BookSidebar {
       <Host>
         <div class={"header" + (this.scrolled ? " scrolled" : "")}>
 
-          <md-standard-icon-button
+          <md-icon-button
             class="close-button"
             onclick={() => this.menuClosed.emit()}
           >
             <md-icon>menu</md-icon>
-          </md-standard-icon-button>
+          </md-icon-button>
           <div class="title">Obsah</div>
         </div>
 

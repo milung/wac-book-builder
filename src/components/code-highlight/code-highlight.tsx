@@ -102,10 +102,10 @@ export class CodeHighlight {
           </pre>
           <div class="tools">
             <div class="lang-label">{hljs.getLanguage(this.language)?.name}</div>
-            <md-standard-icon-button  class="copy" onClick={() => {
+            <md-icon-button  class="copy" onClick={() => {
               const code = this.lines.filter(l => l.type !== 'remove').join('\n');
               navigator.clipboard.writeText(code);
-            }}><md-icon>content_copy</md-icon></md-standard-icon-button>
+            }}><md-icon>content_copy</md-icon></md-icon-button>
           </div>
         </div>
       </Host>

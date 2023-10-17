@@ -2,7 +2,7 @@
 import "@material/web/elevation/elevation.js";
 import "@material/web/fab/fab.js";
 import "@material/web/icon/icon.js";
-import "@material/web/iconbutton/standard-icon-button.js";
+import "@material/web/iconbutton/icon-button.js";
 import "@material/web/iconbutton/filled-tonal-icon-button.js";
 import "@material/web/iconbutton/outlined-icon-button.js";
 import "@material/web/list/list.js";
