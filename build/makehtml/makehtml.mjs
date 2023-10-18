@@ -9,8 +9,13 @@ import * as watcher from '@parcel/watcher';
 async function* walk(dir) {
     for await (const d of await fs.opendir(dir)) {
         const entry = path.join(dir, d.name);
-        if (d.isDirectory()) yield* walk(entry);
-        else if (d.isFile()) yield entry;
+        let dstat = d
+        while( dstat.isSymbolicLink() ) {
+            const real = await fs.realpath(entry);
+            dstat = await fs.stat(real);
+        }
+        if (dstat.isDirectory()) yield* walk(entry);
+        else if (dstat.isFile()) yield entry;
     }
 }
 
