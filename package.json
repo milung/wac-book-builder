@@ -5,7 +5,7 @@
   "description": "Stencil Ionic App Starter",
   "scripts": {
     "build": "stencil build --prod",
-    "start": "concurrently --kill-others  \"npm run makehtml:watch\" \"stencil build --dev --watch --serve\"",
+    "start": "concurrently --kill-others  \"npm run makehtml:watch\" \"stencil build --dev --watch --serve --port 3377\"",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",

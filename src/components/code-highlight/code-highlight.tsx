@@ -103,7 +103,10 @@ export class CodeHighlight {
           <div class="tools">
             <div class="lang-label">{hljs.getLanguage(this.language)?.name}</div>
             <md-icon-button  class="copy" onClick={() => {
-              const code = this.lines.filter(l => l.type !== 'remove').join('\n');
+              const code = this.lines
+                .filter(l => l.type !== 'remove')
+                .map(l => l.text)
+                .join('\n');
               navigator.clipboard.writeText(code);
             }}><md-icon>content_copy</md-icon></md-icon-button>
           </div>
@@ -139,18 +142,29 @@ export class CodeHighlight {
       this.highlight = code;
     }
 
+    let lastType = "";
     this.highlight = this.highlight.split('\n').map((line, index) => {
-      const lineIndex = this.lines.findIndex(l => l.index === index);
+      let lineIndex = this.lines.findIndex(l => l.index === index);
       if (lineIndex > -1) {
         const lineType = this.lines[lineIndex].type;
-        return `<line-bg class="${lineType}" index="${index}"><md-icon class="line">content_copy</md-icon>${line}</line-bg>`;
+        if (lastType !== lineType) {
+          const icon = lineType === 'add' ? '<md-icon class="line">content_copy</md-icon>' : "";
+          line = `<line-bg class="${lineType}" index="${index}">${icon}${line}`;
+        }
+        lineIndex = this.lines.findIndex(l => l.index === index+1);
+        let nextType = "-";
+        if (lineIndex > -1) {
+          nextType = this.lines[lineIndex].type;
+        }
+        if (nextType !== lineType) {
+          line += `</line-bg>`;
+        }
+        lastType = lineType;
       }
       return line;
     }).join('\n')
-    this.highlight = this.highlight
-      .replace(/<\/line-bg>\s+<line-bg [^>]*>/gm, '\n')
-      .replace(/__pfx__/g, '<span class="pfx">&lt;pfx&gt;</span>');
     
+    this.highlight= this.highlight.replace(/line-bg>\s+<line-bg/g, 'line-bg>\n<line-bg');
   }
 
  private onLineClick(ev: Event) {

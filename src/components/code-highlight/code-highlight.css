@@ -50,7 +50,6 @@
   --md-icon-button-icon-size: 16px;
 }
 .copy-button {
-  
   cursor: pointer;
   color: var(--md-sys-color-on-surface-variant);
   transition: 0.3s;
@@ -106,7 +105,7 @@ line-bg md-icon {
   --md-icon-size: 16px;
 }
 
-line-bg:first-of-type:hover md-icon {
+line-bg:hover md-icon {
   opacity: 0.3;
 }
 
