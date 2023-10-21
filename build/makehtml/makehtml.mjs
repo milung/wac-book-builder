@@ -6,6 +6,8 @@ import { convert_toc } from './toc-renderer.mjs';
 import * as watcher from '@parcel/watcher';
 
 
+const cache = new Map();
+
 async function* walk(dir) {
     for await (const d of await fs.opendir(dir)) {
         const entry = path.join(dir, d.name);
@@ -24,7 +26,6 @@ function rebase_path(sourceDir, targetDir, file) {
     return path.join(targetDir, rel);
 }
 
-
 async function walkFiles(opts = {}) {
     const { sourceDir, targetDir, verbose } = opts;
 
@@ -37,6 +38,12 @@ async function walkFiles(opts = {}) {
         let targetPath = rebase_path(sourceDir, targetDir, file);
         /* compare files timestamps */
         const sourceStat = await fs.stat(file);
+        const mtime = sourceStat.mtimeMs;
+        if (cache.has(file) && cache.get(file) === mtime && !opts.force) {
+            continue;
+        } else {
+            cache.set(file, mtime);
+        }
 
         if (file.endsWith('.md')) {
             if (file.endsWith('_toc.md')) {
@@ -44,15 +51,6 @@ async function walkFiles(opts = {}) {
             }
 
             targetPath = targetPath.replace('.md', '.html');
-            try {
-                const targetStat = await fs.stat(targetPath);
-                if (sourceStat.mtimeMs <= targetStat.mtimeMs && !opts.force && !opts.files?.findIndex(file) === -1) {
-                    continue;
-                }
-            } catch (e) {
-                // file does not exist
-            }
-
             if (verbose) {
                 console.log(`Converting ${file} to ${targetPath}`);
             }
@@ -60,14 +58,6 @@ async function walkFiles(opts = {}) {
             await convert_chapter(file, targetPath, opts);
 
         } else {
-            try {
-                const targetStat = await fs.stat(targetPath);
-                if (sourceStat.mtimeMs <= targetStat.mtimeMs) {
-                    continue;
-                }
-            } catch (e) {
-                // file does not exist
-            }
             if (verbose) {
                 console.log(`Copying ${file} to ${targetPath}`);
             }
@@ -82,53 +72,33 @@ async function convert(options) {
     await convert_toc(options);
 }
 
+
 async function main() {
     const args = readOptions();
-
     const options = {
-        sourceDir: args.source || './book-src/',
+        sourceDir: args.source || process.env.BOOK_SRC || './book-src/',
         targetDir: args.target || './src/book/',
         watch: args.watch || false,
         verbose: args.verbose || false,
         bookPrefix: args.bookPrefix || './book',
         version: args.version || 'latest',
         force: args.force || false,
+        watchPeriod: args.watchperiod || 5000,
     };
 
+    function sleep(ms) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, ms);
+        });
+    }
+    
     try {
-        await convert(options); // first run        
+        await convert(options); // first run
         while (options.watch) {
-
-            let error = false;
-            let subscription = await watcher.subscribe(options.sourceDir, async (err, events) => {
-                if (err) {
-                    console.error(err);
-                    return
-                }
-                if (events.length === 0) {
-                    return;
-                }
-                for( const event of events) {
-                    console.log(`File ${event.path} was ${event.type}`);
-                    if (event.type === 'delete') {
-                        continue;
-                    }
-                    await convert({ ...options, files: [event.path]}); // run on watch change
-                    console.log('done - still watching');
-                }
-            });
-
             console.log('watching');
-
-            function sleep(ms) {
-                return new Promise((resolve) => {
-                    setTimeout(resolve, ms);
-                });
-            }
-            while (!error) { // keep alive
-                await sleep(300);
-            }
-            await subscription.unsubscribe();
+            await sleep(options.watchPeriod);
+            console.log('refreshing-content');
+            await convert(options); // run on watch change
         }
     } catch (e) {
         console.error(e);

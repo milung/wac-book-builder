@@ -126,11 +126,16 @@ export class CodeHighlight {
       /** match regex and take first group*/
       const regex = /@_([a-z\-_]+)_@/;
       const pfxRegex = /<[pP]fx>/g;
+      const dockerIdRegex = /<[dD]ocker-id>/g;
+      const githubIdRegex = /<[gG]ithub-id>/g;
       const match = line.match(regex);
       if (match) {
         line = line.replace(regex, '');
         this.lines.push({ index, type: match[1], text: line });
-        return line.replace(pfxRegex, '__pfx__'); 
+        return line
+          .replace(pfxRegex, '__pfx__')
+          .replace(dockerIdRegex, '__docker-id__')
+          .replace(githubIdRegex, '__github-id__'); 
       }
       return line.replace(pfxRegex, '__pfx__');
     }).filter(l => l !== null).join('\n');
@@ -164,7 +169,12 @@ export class CodeHighlight {
       return line;
     }).join('\n')
     
-    this.highlight= this.highlight.replace(/line-bg>\s+<line-bg/g, 'line-bg>\n<line-bg');
+    this.highlight= this.highlight
+      .replace(/line-bg>\s+<line-bg/g, 'line-bg>\n<line-bg')
+      .replace(/__pfx__/g, '<span class="pfx">&lt;pfx&gt;</span>')
+      .replace(/__docker-id__/g, '<span class="pfx">&lt;docker_id&gt;</span>')
+      .replace(/__github-id__/g, '<span class="pfx">&lt;github_id&gt;</span>');
+
   }
 
  private onLineClick(ev: Event) {
