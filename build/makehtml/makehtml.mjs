@@ -94,10 +94,10 @@ async function main() {
     
     try {
         await convert(options); // first run
+        console.log('watching');
         while (options.watch) {
-            console.log('watching');
             await sleep(options.watchPeriod);
-            console.log('refreshing-content');
+            //console.log('refreshing-content');
             await convert(options); // run on watch change
         }
     } catch (e) {
