@@ -137,7 +137,11 @@ export class CodeHighlight {
           .replace(dockerIdRegex, '__docker-id__')
           .replace(githubIdRegex, '__github-id__'); 
       }
-      return line.replace(pfxRegex, '__pfx__');
+      this.lines.push({ index, type: "-", text: line });
+      return line
+        .replace(pfxRegex, '__pfx__')
+        .replace(dockerIdRegex, '__docker-id__')
+        .replace(githubIdRegex, '__github-id__'); 
     }).filter(l => l !== null).join('\n');
     
     try {
@@ -147,7 +151,7 @@ export class CodeHighlight {
       this.highlight = code;
     }
 
-    let lastType = "";
+    let lastType = "-";
     this.highlight = this.highlight.split('\n').map((line, index) => {
       let lineIndex = this.lines.findIndex(l => l.index === index);
       if (lineIndex > -1) {
