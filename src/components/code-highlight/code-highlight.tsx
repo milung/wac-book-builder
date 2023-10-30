@@ -95,7 +95,7 @@ export class CodeHighlight {
             onCopy={(ev:ClipboardEvent) => {
               ev.preventDefault();
               const text = window.getSelection()?.toString() ?? '';
-              const lines = text.split('\n').filter(l => !l.includes('content_copy'));
+              const lines = text.split('\n').map((line) => line.trimEnd()).filter(l => !l.includes('content_copy'));
               ev.clipboardData.setData('text/plain', lines.join('\n'));
             }}
             ></div> 
@@ -130,14 +130,18 @@ export class CodeHighlight {
       const githubIdRegex = /<[gG]ithub-id>/g;
       const match = line.match(regex);
       if (match) {
-        line = line.replace(regex, '');
+        line = line.replace(regex, '').trimEnd();
         this.lines.push({ index, type: match[1], text: line });
         return line
           .replace(pfxRegex, '__pfx__')
           .replace(dockerIdRegex, '__docker-id__')
           .replace(githubIdRegex, '__github-id__'); 
       }
-      return line.replace(pfxRegex, '__pfx__');
+      this.lines.push({ index, type: "-", text: line.trimEnd() });
+      return line
+        .replace(pfxRegex, '__pfx__')
+        .replace(dockerIdRegex, '__docker-id__')
+        .replace(githubIdRegex, '__github-id__'); 
     }).filter(l => l !== null).join('\n');
     
     try {
@@ -147,7 +151,7 @@ export class CodeHighlight {
       this.highlight = code;
     }
 
-    let lastType = "";
+    let lastType = "-";
     this.highlight = this.highlight.split('\n').map((line, index) => {
       let lineIndex = this.lines.findIndex(l => l.index === index);
       if (lineIndex > -1) {
