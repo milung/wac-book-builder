@@ -152,7 +152,22 @@ export class CodeHighlight {
     }
 
     let lastType = "-";
+    let openSpan = ""
     this.highlight = this.highlight.split('\n').map((line, index) => {
+      if (openSpan !== "") {
+          line = openSpan + line;
+          openSpan = "";
+      }
+
+      const spanTags = line.match(/<span class="[^"]*">|<\/span>/g) || [];
+      for (let i = spanTags.length - 1; i >= 0; i--) {
+          if (!spanTags[i].endsWith('</span>')) {
+              openSpan = spanTags[i];
+              line += '</span>';
+              break;
+          }
+      }
+      //console.log(line);
       let lineIndex = this.lines.findIndex(l => l.index === index);
       if (lineIndex > -1) {
         const lineType = this.lines[lineIndex].type;
