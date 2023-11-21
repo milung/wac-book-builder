@@ -167,7 +167,6 @@ export class CodeHighlight {
               break;
           }
       }
-      //console.log(line);
       let lineIndex = this.lines.findIndex(l => l.index === index);
       if (lineIndex > -1) {
         const lineType = this.lines[lineIndex].type;
