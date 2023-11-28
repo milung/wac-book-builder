@@ -157,12 +157,20 @@ export class CodeHighlight {
     let lastType = "-";
     let openSpan = ""
     this.highlight = this.highlight.split('\n').map((line, index) => {
-      if (openSpan !== "") {
+      
+      // Search for all span tags
+      const spanTags = line.match(/<span class="[^"]*">|<\/span>/g) || [];
+
+      // Check if the last span is closed on the current line
+      const isClosed = spanTags.length !== 0 && spanTags[spanTags.length - 1].endsWith('</span>');
+
+      // If the previous line did not close the span, open it again on the current line
+      if (openSpan !== "" && spanTags.length !== 0 && !isClosed) {
           line = openSpan + line;
           openSpan = "";
       }
 
-      const spanTags = line.match(/<span class="[^"]*">|<\/span>/g) || [];
+      // Find the unclosed span and close it
       for (let i = spanTags.length - 1; i >= 0; i--) {
           if (!spanTags[i].endsWith('</span>')) {
               openSpan = spanTags[i];
@@ -170,6 +178,7 @@ export class CodeHighlight {
               break;
           }
       }
+
       let lineIndex = this.lines.findIndex(l => l.index === index);
       if (lineIndex > -1) {
         const lineType = this.lines[lineIndex].type;
