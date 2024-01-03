@@ -157,7 +157,6 @@ export class CodeHighlight {
     let lastType = "-";
     let openSpan = ""
     this.highlight = this.highlight.split('\n').map((line, index) => {
-      
       // Search for all span tags
       const spanTags = line.match(/<span class="[^"]*">|<\/span>/g) || [];
 
@@ -178,6 +177,9 @@ export class CodeHighlight {
               break;
           }
       }
+
+      // Additionaly wrap whole line in span
+      line = `<span>${line}</span>`;
 
       let lineIndex = this.lines.findIndex(l => l.index === index);
       if (lineIndex > -1) {
