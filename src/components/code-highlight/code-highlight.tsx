@@ -92,6 +92,16 @@ export class CodeHighlight {
     return (
       <Host>
         <div class="wrapper">
+          <div class="tools">
+            <div class="lang-label">{hljs.getLanguage(this.language)?.name}</div>
+            <md-icon-button  class="copy" onClick={() => {
+              const code = this.lines
+                .filter(l => l.type !== 'remove')
+                .map(l => l.text)
+                .join('\n');
+              navigator.clipboard.writeText(code);
+            }}><md-icon>content_copy</md-icon></md-icon-button>
+          </div>
           <pre>
             <div class="hljs" innerHTML={this.highlight} onClick={ (ev:Event)=>this.onLineClick(ev)}
             // handle Ctrl + C on highlighted code
@@ -103,16 +113,6 @@ export class CodeHighlight {
             }}
             ></div> 
           </pre>
-          <div class="tools">
-            <div class="lang-label">{hljs.getLanguage(this.language)?.name}</div>
-            <md-icon-button  class="copy" onClick={() => {
-              const code = this.lines
-                .filter(l => l.type !== 'remove')
-                .map(l => l.text)
-                .join('\n');
-              navigator.clipboard.writeText(code);
-            }}><md-icon>content_copy</md-icon></md-icon-button>
-          </div>
         </div>
       </Host>
     );

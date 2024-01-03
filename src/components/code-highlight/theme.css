@@ -1,11 +1,12 @@
-
-.wrapper:hover .hljs {
-    background-color: var(--code-background-hover,var(--md-sys-color-surface-variant));
-  }
+.wrapper {
+    background: var(--code-background, var(--md-sys-color-surface-container, rgb(0,0,0.0.2)));
+    border-radius: 16px;
+}
   
  .hljs {
     color: var(--code-color, inherit);
-    background: var(--code-background, var(--md-sys-color-surface-container, rgb(0,0,0.0.2)));
+    background-color: var(--code-background-hover,var(--md-sys-color-surface-variant));
+    /* background: var(--code-background, var(--md-sys-color-surface-container, rgb(0,0,0.0.2))); */
     font-family: var(--code-font-family, 'Roboto Mono');
     font-size: var(--code-font-size, 0.8rem);
     font-weight: var(--code-font-weight, 300);
