@@ -17,6 +17,17 @@ export class AppRoot {
   @State() theme: string = 'light';
   @State() scrolled: boolean = false;
 
+  private bookTitle: string = "Vývoj webových aplikácií"
+
+  componentWillLoad() {
+    /* get book title from meta tag */
+    const meta = document.querySelector("meta[name='book-title']");
+    if (meta) {
+      this.bookTitle = meta.getAttribute("content");
+    }
+
+    this.initTheme();
+  }
 
   render() {
     return (
@@ -27,7 +38,7 @@ export class AppRoot {
               onclick={() => this.openMenu(true)}>
               <md-icon>menu</md-icon>
             </md-icon-button>
-            <h1 slot="title">Vývoj webových aplikácií</h1>
+            <h1 slot="title">{this.bookTitle}</h1>
             <div topbar-tools>
               
               <md-icon-button onclick={() => this.changeFontSize(-1)}>
@@ -61,10 +72,6 @@ export class AppRoot {
         </page>
       </Host>
     );
-  }
-
-  componentWillLoad() {
-    this.initTheme();
   }
 
   private setTheme(themeName: string) {

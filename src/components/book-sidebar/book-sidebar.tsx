@@ -14,7 +14,6 @@ export class BookSidebar {
   @Prop() tocPath: string = "./book/_toc.html";
 
 
-
   @State()
   private content: string = '';
   @State()
@@ -24,9 +23,26 @@ export class BookSidebar {
   private author: string = "unknown";
   private email: string = "";
   private description: string = "";
+  private bookLanguage: string = "SK";
+  private contentCaption: string = "Obsah";
+  private versionCaption: string = "Verzia";
 
   async componentWillLoad() {
+    /* get book language from meta tag */
+    const meta = document.querySelector("meta[name='book-language']");
+    if (meta) {
+      this.bookLanguage = meta.getAttribute("content");
+    }
+
     this.content = "Načítavam ... ";   
+    this.contentCaption = "Obsah";
+    this.versionCaption = "Verzia";
+
+    if (this.bookLanguage === "EN") {
+      this.content = "Loading ... ";
+      this.contentCaption = "Content";
+      this.versionCaption = "Version";
+    }
     
     const metaNames = ['version', 'author', 'description', 'email'];
 
@@ -63,7 +79,7 @@ export class BookSidebar {
           >
             <md-icon>menu</md-icon>
           </md-icon-button>
-          <div class="title">Obsah</div>
+          <div class="title">{this.contentCaption}</div>
         </div>
 
 
@@ -77,7 +93,7 @@ export class BookSidebar {
               () => { 
                 window.location.href = `mailto:${this.email}?subject=${this.description}, (${this.version})` }
             }>{this.author}</div>
-            <span>Verzia: {this.version}</span>
+            <span>{this.versionCaption}: {this.version}</span>
           </div>
         </div>
       </Host>

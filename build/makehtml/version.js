@@ -28,13 +28,17 @@ const emailB64 = Buffer.from(email).toString('base64');
 const title = args.title || 'Textbook';
 const description = args.description || 'Textbook';
 const imageCaption = args["image-caption"] || 'Figure %d.';
+const bookTitle = args["book-title"] || 'Vývoj webových aplikácií';
+const bookLanguage = args["book-language"] || 'SK';
 
 let content = fs.readFileSync('./www/index.html', 'utf8');
 content = content.replace(/<meta name="version" content="[^"]*">/g, `<meta name="version" content="${version}">`);
 content = content.replace(/<meta name="author" content="[^"]*">/g, `<meta name="author" content="${author}">`);
 content = content.replace(/<meta name="email" content="[^"]*">/g, `<meta name="email" content="${emailB64}">`);
 content = content.replace(/<meta name="description" content="[^"]*">/g, `<meta name="description" content="${description}">`);
-content = content.replace(/<meta name="image-caption" content="[^"]*">/g, `<meta name="image-caption" content="${imageCaption}">`);
+content = content.replace(/<meta name="book-img-counter-fmt" content="[^"]*">/g, `<meta name="book-img-counter-fmt" content="${imageCaption}">`);
+content = content.replace(/<meta name="book-language" content="[^"]*">/g, `<meta name="book-language" content="${bookLanguage}">`);
+content = content.replace(/<meta name="book-title" content="[^"]*">/g, `<meta name="book-title" content="${bookTitle}">`);
 content = content.replace(/<title>[^>]*<\/title>/g, `<title>${title}</title>`);
 
 fs.writeFileSync('./www/index.html', content, 'utf8');
