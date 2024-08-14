@@ -108,7 +108,8 @@ export class CodeHighlight {
             onCopy={(ev:ClipboardEvent) => {
               ev.preventDefault();
               const text = window.getSelection()?.toString() ?? '';
-              const lines = text.split('\n').map((line) => line.trimEnd()).filter(l => !l.includes('content_copy'));
+              const lines = text.split('\n')
+              .map((line) => line.replace('content_copy', '').trimEnd());
               ev.clipboardData.setData('text/plain', lines.join('\n'));
             }}
             ></div> 
